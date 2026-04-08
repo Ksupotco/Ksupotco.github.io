@@ -1,0 +1,265 @@
+/* --- [精装修] 注入 Never Butterfly 的灵魂细节 (更新版) --- */
+
+/* 1. 【质感】为整个页面添加纸张纹理背景 */
+body {
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    background-repeat: repeat;
+    background-color: #f7f7f7; /* 增加一个默认背景色，以防纹理加载失败 */
+}
+
+/* 2. 【灵魂】基础字体设定：全局使用古典衬线字体 */
+/* 这将作为所有元素的默认字体，除非被更具体的规则覆盖 */
+body, h1, h2, h3, h4, h5, h6, .title, .subtitle,
+.navbar-item, .button, input, textarea,
+.content, .footer, .menu, .notification,
+.tag, .box, .card, .panel, .table {
+    font-family: "Georgia", "Times New Roman", "Source Han Serif SC", "思源宋体", "STSong", "SimSun", serif;
+    /* 增加一个全局的字体抗锯齿，使字体更平滑 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2.1 【精细】为正文内容区域设定更舒适的字体样式 */
+/* .content 选择器通常包裹文章和页面内容 */
+.content {
+    font-size: 1.05rem; /* 正文基础字号 */
+    line-height: 1.75; /* 正文行高 */
+    word-spacing: 0.05rem; /* 增加一点字间距，提升阅读舒适度 */
+}
+
+/* 2.2 【精细】为段落 (<p> 标签) 再次微调，确保阅读舒适度 */
+.content p {
+    margin-bottom: 1.5rem; /* 增加段落之间的垂直间距 */
+}
+
+/* 2.3 【精细】标题字体：保持衬线体，但可根据需要调整粗细或大小 */
+/* Never Butterfly 的标题字体通常不那么粗，更显优雅 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400; /* 默认标题的字重，使其不那么粗重 */
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
+/* ... 可以继续定义其他标题级别 */
+
+/* 2.4 【精细】代码块字体：通常会使用等宽字体，因为它更易于阅读和调试 */
+.content pre code, .content code {
+    font-family: "Consolas", "Monaco", "Ubuntu Mono", "Source Code Pro", monospace; /* 等宽字体 */
+    font-size: 0.95rem; /* 代码字号稍小 */
+    line-height: 1.5; /* 代码行高 */
+}
+.content pre {
+    background-color: #f8f8f8; /* 代码块背景色 */
+    border: 1px solid #ddd;
+    padding: 1em;
+    overflow-x: auto; /* 超出部分可滚动 */
+}
+
+
+/* 3. 【细节】移除顶部默认大图 */
+.hero.is-medium {
+    display: none;
+}
+
+/* 4. 【布局】内容区域最大宽度，形成优雅的留白 */
+.section > .container {
+    max-width: 820px !important;
+}
+
+/* 5. 【细节】主标题样式，添加下划线 */
+.logo-text {
+    font-size: 2.2rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 0rem; /* 减少和副标题的间距 */
+    padding-bottom: 1rem; /* 为下划线留出空间 */
+    border-bottom: 1px solid #dbdbdb; /* 添加那条关键的下划线 */
+    display: block; /* 确保它是一个块级元素，这样下划线才能横跨 */
+    color: #333; /* 标题颜色稍深 */
+}
+
+/* 副标题样式 */
+.subtitle.is-6 {
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: #7a7a7a; /* 颜色变灰，不抢戏 */
+    font-size: 0.9rem; /* 副标题字号稍小 */
+}
+
+/* 6. 【细节】导航栏样式，调整边框和间距 */
+.navbar-menu {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 3rem; /* 加大和下面内容的间距 */
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0.5rem 0;
+}
+.navbar-item {
+    font-size: 1.0rem; /* 导航项字体大小 */
+    color: #555; /* 导航项颜色 */
+    font-weight: 400; /* 导航项字重 */
+    padding: 0.5rem 1rem; /* 增加导航项点击区域 */
+}
+.navbar-item:hover {
+    background-color: transparent; /* 悬停时去除背景色 */
+    color: #000; /* 悬停时颜色加深 */
+}
+
+
+/* 7. 【细节】文章链接样式：无颜色，有下划线 */
+.content a {
+    color: inherit; /* 继承父元素的颜色（黑色） */
+    text-decoration: underline; /* 添加下划线 */
+}
+.content a:hover {
+    color: #555; /* 鼠标悬浮时颜色稍微变浅 */
+}
+
+/* 8. 【细节】首页文章之间的分隔符：* * * */
+/* card 是 Hexo 默认主题中通常用来包裹文章摘要的容器 */
+.card:not(:last-child) {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee; /* 用一条很浅的线分隔 */
+}
+/* 我们用CSS的伪元素来创建 * * * */
+.card:not(:last-child)::after {
+    content: '* * *'; /* 这就是那三个星号 */
+    display: block;
+    text-align: center;
+    margin-top: 3rem; /* 和文章内容拉开距离 */
+    font-size: 1.5rem;
+    color: #ccc;
+}
+
+/* 8.1 【精细】首页文章标题样式 */
+.card-header-title {
+    font-size: 1.6rem; /* 首页文章标题字号 */
+    font-weight: 400; /* 首页文章标题字重 */
+    color: #333;
+    padding-bottom: 0.5rem; /* 增加标题和摘要间距 */
+}
+.card-header-title:hover {
+    color: #000; /* 悬停颜色加深 */
+}
+
+/* 8.2 【精细】首页文章摘要/内容部分字体，与正文内容保持一致 */
+.card-content .content {
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+
+/* 9. 【细节】引用文字(Blockquote)的样式 */
+.content blockquote {
+    background-color: transparent; /* 去掉默认背景色 */
+    border-left: 3px solid #ccc; /* 左边框变细 */
+    padding: 0.5em 1.5em;
+    font-style: italic; /* 斜体 */
+    color: #555; /* 引用文字颜色稍浅 */
+}
+
+/* 10. 页脚：居中页脚内容 */
+.footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: transparent; /* 去掉背景色，融入页面 */
+    font-size: 0.9rem; /* 页脚字体稍小 */
+    color: #7a7a7a; /* 页脚颜色 */
+}
+.footer .level {
+    justify-content: center !important;
+}
+.footer .level-item {
+    padding: 0 1rem;
+}
+
+/* 11. 【日期/分类/标签】这些元信息的样式 */
+.is-small { /* Hexo主题中常用来显示日期等信息的类 */
+    font-size: 0.85rem;
+    color: #999;
+}
+.article-meta .is-small {
+    margin-bottom: 1rem; /* 增加日期和内容间的间距 */
+}
+.article-meta a {
+    color: #999; /* 链接颜色 */
+    text-decoration: none; /* 去掉下划线 */
+}
+.article-meta a:hover {
+    color: #555; /* 悬停时加深 */
+}
+.tag {
+    font-family: "Georgia", serif; /* 标签也使用衬线体 */
+    font-size: 0.8rem;
+    background-color: #f0f0f0;
+    color: #7a7a7a;
+    border-radius: 3px;
+    padding: 0.2em 0.5em;
+}
+.tag:hover {
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+/* 12. 【文章内容】确保内联图片居中 */
+.content img {
+    display: block; /* 使图片成为块级元素 */
+    margin-left: auto; /* 左右外边距自动，实现居中 */
+    margin-right: auto;
+    max-width: 100%; /* 防止图片超出容器 */
+    height: auto; /* 保持图片比例 */
+    margin-top: 1.5rem; /* 图片上方间距 */
+    margin-bottom: 1.5rem; /* 图片下方间距 */
+}
+
+/* 13. 【文章内容】表格样式 */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+.content th, .content td {
+    border: 1px solid #ddd;
+    padding: 0.8em;
+    text-align: left;
+}
+.content th {
+    background-color: #f2f2f2;
+    font-weight: 500;
+}
+
+/* 14. 【文章内容】列表样式 */
+.content ul, .content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* 15. 【文章标题】单篇文章/页面的大标题 */
+.title.is-1 { /* 这通常是单篇文章页面的主标题 */
+    font-size: 2.6rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    color: #222;
+}
+.subtitle.is-2 { /* 副标题或文章日期 */
+    font-size: 1.1rem;
+    text-align: center;
+    color: #888;
+    margin-bottom: 3rem;
+}
