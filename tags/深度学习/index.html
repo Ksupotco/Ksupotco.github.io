@@ -29,9 +29,15 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Ksupotco的纸罐子</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/about/">About</a><a class="navbar-item" href="/%E7%BA%B8%E5%A0%86/">纸堆</a><a class="navbar-item" href="/%E6%A1%A3%E6%A1%88%E5%BA%93/">档案库</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">深度学习</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-13T14:30:00.000Z" title="2026/4/13 22:30:00">2026-04-13</time>发表</span><span class="level-item"><time dateTime="2026-04-13T14:59:46.496Z" title="2026/4/13 22:59:46">2026-04-13</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83%E5%92%8C%E6%8E%A8%E7%90%86%E5%90%83%E5%A4%9A%E5%B0%91%E6%98%BE%E5%AD%98-math%20transformer/">大模型的训练和推理吃多少显存</a></p><div class="content"><h3 id="基本单位与换算"><a href="#基本单位与换算" class="headerlink" title="基本单位与换算"></a>基本单位与换算</h3><p>统一单位：10亿（1B）参数 $= 10^9$。计算机中的显存计算采用 1024 进制，因此将字节数转换为 GB（准确地说是 GiB）的公式为：<script type="math/tex">\text{GB} = \frac{\text{Bytes}}{1024^3}</script></p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Ksupotco的纸罐子</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/about/">About</a><a class="navbar-item" href="/%E7%BA%B8%E5%A0%86/">纸堆</a><a class="navbar-item" href="/%E6%A1%A3%E6%A1%88%E5%BA%93/">档案库</a></div><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">深度学习</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-13T14:30:00.000Z" title="2026/4/13 22:30:00">2026-04-13</time>发表</span><span class="level-item"><time dateTime="2026-04-14T03:04:45.744Z" title="2026/4/14 11:04:45">2026-04-14</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83%E5%92%8C%E6%8E%A8%E7%90%86%E5%90%83%E5%A4%9A%E5%B0%91%E6%98%BE%E5%AD%98-math%20transformer/">大模型的训练和推理吃多少显存</a></p><div class="content"><h3 id="基本单位与换算"><a href="#基本单位与换算" class="headerlink" title="基本单位与换算"></a>基本单位与换算</h3><p>统一单位：10亿（1B）参数 $= 10^9$。计算机中的显存计算采用 1024 进制，因此将字节数转换为 GB（准确地说是 GiB）的公式为：</p>
+
+$$\text{GB} = \frac{\text{Bytes}}{1024^3}$$
+
 <h3 id="1-模型权重"><a href="#1-模型权重" class="headerlink" title="1.模型权重"></a>1.模型权重</h3><p>浮点数精度和模型大小共同决定<br>模型权重是静态显存开销的基础。它的计算公式最简单：</p>
-<script type="math/tex; mode=display">\text{权重显存} = P \times \text{每个参数的字节数}</script><p>不同精度对应的字节数如下：</p>
+
+$$权重显存 = P \times 每个参数的字节数$$
+
+<p>不同精度对应的字节数如下：</p>
 <ul>
 <li><p><strong>FP32（单精度浮点数）：</strong> 4 Bytes</p>
 </li>
@@ -44,8 +50,14 @@
 </ul>
 <p><strong>例子：</strong> 一个 7B 模型在 FP16 精度下，权重显存 $= 7 \times 10^9 \times 2 \div 1024^3 \approx 13.04 \text{ GB}$。</p>
 <h3 id="2-梯度"><a href="#2-梯度" class="headerlink" title="2.梯度"></a>2.梯度</h3><p>梯度只在反向传播（训练阶段）产生，推理时不占用显存。现代深度学习框架通常使用 FP16 或 BF16 来存储计算出的梯度。</p>
-<script type="math/tex; mode=display">\text{全量微调梯度显存} = P \times 2 \text{ Bytes}</script><p>选择的是 <strong>LoRA 微调</strong>，情况就不同了。LoRA 会冻结原始模型，只在旁边外挂极少量的旁路矩阵进行训练。通常情况下，LoRA 训练的参数量只有总参数量的 1% 甚至更少。</p>
-<script type="math/tex; mode=display">\text{LoRA 梯度显存} \approx P \times 1\% \times 2 \text{ Bytes}</script><h3 id="3-优化器状态"><a href="#3-优化器状态" class="headerlink" title="3.优化器状态"></a>3.优化器状态</h3><p>以最经典的 <strong>AdamW</strong> 优化器为例，为了在混合精度训练中保证更新的稳定性，它需要为<strong>每一个参与训练的参数</strong>维护三个额外状态：</p>
+
+$$\text{全量微调梯度显存} = P \times 2 \text{ Bytes}$$
+
+<p>选择的是 <strong>LoRA 微调</strong>，情况就不同了。LoRA 会冻结原始模型，只在旁边外挂极少量的旁路矩阵进行训练。通常情况下，LoRA 训练的参数量只有总参数量的 1% 甚至更少。</p>
+
+$$\text{LoRA 梯度显存} \approx P \times 1\% \times 2 \text{ Bytes}$$
+
+<h3 id="3-优化器状态"><a href="#3-优化器状态" class="headerlink" title="3.优化器状态"></a>3.优化器状态</h3><p>以最经典的 <strong>AdamW</strong> 优化器为例，为了在混合精度训练中保证更新的稳定性，它需要为<strong>每一个参与训练的参数</strong>维护三个额外状态：</p>
 <ol>
 <li><p><strong>FP32 权重主副本（Master Weights）：</strong> 4 Bytes</p>
 </li>
@@ -55,7 +67,10 @@
 </li>
 </ol>
 <p>因此，AdamW 优化器每个参数需要吃掉 $4 + 4 + 4 = 12 \text{ Bytes}$ 的显存。如果是传统的 SGD 优化器，则只需要 FP32 副本和动量，占用 8 Bytes。</p>
-<script type="math/tex; mode=display">\text{全量微调优化器显存 (AdamW)} = P \times 12 \text{ Bytes}</script><p><strong>例子：</strong> 7B 模型全量微调，仅 AdamW 优化器就占用 $7 \times 10^9 \times 12 \div 1024^3 \approx 78.23 \text{ GB}$。这就是为什么单卡跑不起来的原因。而 LoRA 因为只更新约 1% 的参数，优化器显存会随之缩减到原来的百分之一（约 0.78 GB）。</p>
+
+$$\text{全量微调优化器显存 (AdamW)} = P \times 12 \text{ Bytes}$$
+
+<p><strong>例子：</strong> 7B 模型全量微调，仅 AdamW 优化器就占用 $7 \times 10^9 \times 12 \div 1024^3 \approx 78.23 \text{ GB}$。这就是为什么单卡跑不起来的原因。而 LoRA 因为只更新约 1% 的参数，优化器显存会随之缩减到原来的百分之一（约 0.78 GB）。</p>
 <h3 id="4-激活值和上下文存储"><a href="#4-激活值和上下文存储" class="headerlink" title="4.激活值和上下文存储"></a>4.激活值和上下文存储</h3><p>这一部分是高度动态的，也是最难精确估算的，因为它不仅与模型结构（层数、隐藏层维度）有关，还与输入的 <strong>Batch Size（批次大小）</strong> 和 <strong>Sequence Length（序列长度）</strong> 呈强相关。</p>
 <ul>
 <li><p><strong>推理时（KV Cache）：</strong> 模型在生成下一个 Token 时，为了避免重复计算，会缓存之前的 Key 和 Value 向量。序列越长，KV Cache 越大。</p>
