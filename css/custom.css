@@ -1,8 +1,8 @@
 :root {
     --diary-accent: #1976d2;
     --diary-accent-dark: #125aa3;
-    --diary-text: #26384f;
-    --diary-muted: #708197;
+    --diary-text: #000000;
+    --diary-muted: #5f6368;
     --diary-back: #fcfcfc;
     --diary-front: #ffffff;
     --diary-divider: rgba(128, 128, 128, 0.14);
@@ -21,8 +21,9 @@ body.diary-layout {
     overflow-x: hidden;
     background: var(--diary-back);
     color: var(--diary-text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-        "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    font-family: Montserrat, Roboto, "Source Sans Pro", Helvetica, "Open Sans", "Noto Sans SC",
+        "Microsoft YaHei", "Hiragino Kaku Gothic ProN", "Heiti TC", "MS Mincho", MingLiU, sans-serif;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .04);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
@@ -48,6 +49,8 @@ body.diary-layout {
     flex-direction: column;
     text-align: right;
     background: var(--diary-back);
+    font-family: Montserrat, Roboto, "Source Sans Pro", Helvetica, "Open Sans", "Noto Sans SC",
+        "Microsoft YaHei", "Hiragino Kaku Gothic ProN", "Heiti TC", "MS Mincho", MingLiU, sans-serif;
 }
 
 .nav-head {
@@ -62,8 +65,8 @@ body.diary-layout {
 
 .nav-head:hover {
     border-right-color: rgba(25, 118, 210, .6);
-    background: rgba(25, 118, 210, .025);
-    color: var(--diary-accent-dark) !important;
+    background: rgba(25, 118, 210, .02);
+    color: #092949 !important;
 }
 
 .nav-title,
@@ -74,8 +77,7 @@ body.diary-layout {
 .nav-title {
     font-size: 30px;
     font-weight: 400;
-    line-height: 1.4;
-    letter-spacing: -.02em;
+    line-height: 42px;
 }
 
 .nav-subtitle {
@@ -103,14 +105,14 @@ body.diary-layout {
 
 .nav-link-list .nav-link-item:hover {
     border-right-color: rgba(25, 118, 210, .6);
-    background: rgba(25, 118, 210, .025);
-    color: var(--diary-accent-dark);
+    background: rgba(25, 118, 210, .02);
+    color: #092949;
 }
 
 .nav-link-list .nav-link-item.active {
     border-right-color: var(--diary-accent);
-    background: rgba(25, 118, 210, .04);
-    color: var(--diary-accent-dark);
+    background: rgba(25, 118, 210, .03);
+    color: #0e4377;
 }
 
 .nav-footer {
@@ -178,8 +180,9 @@ body.diary-layout {
     margin: 0 0 10px;
     color: inherit;
     font-size: 30px;
-    font-weight: 500;
-    line-height: 1.45;
+    font-family: Lora, "Noto Serif SC", "Songti SC", SimSun, serif;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .post-list-container .post-item-title {
@@ -257,14 +260,15 @@ body.diary-layout {
 .stream-surface h3,
 .stream-surface h4 {
     color: var(--diary-text);
-    font-weight: 500;
 }
 
 .article .title.is-3,
 .stream-surface h1.title {
     margin: 0 0 12px;
-    font-size: 30px;
-    line-height: 1.45;
+    font-family: "Titillium Web", "Noto Sans SC", "Microsoft YaHei", Verdana, Helvetica, sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.2;
 }
 
 .article-meta {
@@ -280,9 +284,11 @@ body.diary-layout {
 }
 
 .article .content {
-    color: #33465c;
+    color: #212529;
+    font-family: "Titillium Web", "Noto Sans SC", "Microsoft YaHei", Verdana, Helvetica, sans-serif;
     font-size: 16px;
-    line-height: 1.8;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .article .content p,
@@ -291,13 +297,41 @@ body.diary-layout {
 .article .content blockquote,
 .article .content pre,
 .article .content table {
-    margin-bottom: 1.35em;
+    margin-bottom: 1rem;
 }
 
 .article .content a {
-    color: var(--diary-accent);
-    text-decoration: underline;
-    text-underline-position: under;
+    color: #1772d0;
+    text-decoration: none;
+}
+
+.article .content a:hover,
+.article .content a:focus {
+    color: #f09228;
+    text-decoration: none;
+}
+
+.article .content strong,
+.article .content b {
+    font-weight: 600;
+}
+
+.article .content h2 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.article .content h3 {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.article .content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
 .article .content img {
@@ -719,7 +753,7 @@ body.diary-layout {
 
     .article .title.is-3,
     .stream-surface h1.title {
-        font-size: 24px;
+        font-size: 30px;
     }
 
     .article .content {
