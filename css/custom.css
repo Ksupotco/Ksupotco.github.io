@@ -419,23 +419,28 @@ body.diary-layout {
         z-index: 18;
         display: block;
         width: 220px;
-        padding: 60px 17px 42px 13px;
+        padding: 60px 12px 42px;
         overflow-x: hidden;
         overflow-y: auto;
-        background: var(--diary-back);
-        scrollbar-color: #86a8c9 #edf3f8;
+        background: #fff;
+        color: #343a40;
+        font-family: "Noto Serif", "PT Serif", "Noto Serif SC", source-han-serif-sc,
+            "Source Han Serif SC", "Source Han Serif CN", "Songti SC", SimSun, serif;
+        font-size: 16px;
+        line-height: 1.7;
+        scrollbar-color: #888 #f1f1f1;
         scrollbar-width: thin;
     }
 
     .article-toc-title {
         display: block;
-        margin: 0 0 14px 12px;
-        padding-bottom: 10px;
-        border-bottom: 3px double rgba(25, 118, 210, .22);
-        color: var(--diary-accent-dark);
-        font-size: 19px;
+        margin: 0 0 1em 1em;
+        padding-bottom: .6em;
+        border-bottom: 3px double #f1f3f5;
+        color: #343a40;
+        font-size: 1.2em;
         font-weight: 700;
-        line-height: 1.35;
+        line-height: 1.7;
     }
 
     .article-toc-content ol,
@@ -449,38 +454,45 @@ body.diary-layout {
     .article-toc-content ul ul,
     .article-toc-content ol ul,
     .article-toc-content ul ol {
-        padding-left: 13px;
+        padding-left: 0;
     }
 
     .article-toc-content li {
-        margin: 0;
+        margin: 0 0 .4em 1.4em;
         padding: 0;
+        line-height: 1.55;
+    }
+
+    .article-toc-content li li {
+        margin: 0 0 .38em 1.33em;
+        font-size: .95em;
     }
 
     .article-toc-content a {
-        display: block;
-        margin: 1px 0;
-        padding: 5px 10px 5px 12px;
-        border-left: 2px solid transparent;
-        border-radius: 0 3px 3px 0;
-        color: #1976d2;
-        font-size: 14px;
-        line-height: 1.45;
+        display: inline;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        color: #1b6ec2;
+        font-size: 1em;
+        font-weight: 400;
+        line-height: inherit;
         text-decoration: none;
-        transition: background-color .16s ease, border-color .16s ease, color .16s ease;
+        transition: color .5s;
     }
 
     .article-toc-content a:hover {
-        border-left-color: rgba(25, 118, 210, .45);
-        background: rgba(25, 118, 210, .055);
-        color: #0d47a1;
+        border: 0;
+        background: transparent;
+        color: #228ae6;
     }
 
     .article-toc-content a.is-active {
-        border-left-color: #1976d2;
-        background: rgba(25, 118, 210, .09);
-        color: #0d47a1;
-        font-weight: 600;
+        border: 0;
+        background: transparent;
+        color: #1b6ec2;
+        font-weight: 400;
     }
 
     .article-toc::-webkit-scrollbar {
@@ -489,11 +501,11 @@ body.diary-layout {
 
     .article-toc::-webkit-scrollbar-thumb {
         border-radius: 3px;
-        background: #86a8c9;
+        background: #888;
     }
 
     .article-toc::-webkit-scrollbar-track {
-        background: #edf3f8;
+        background: #f1f1f1;
     }
 }
 
