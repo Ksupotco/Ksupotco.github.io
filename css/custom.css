@@ -265,10 +265,12 @@ body.diary-layout {
 .article .title.is-3,
 .stream-surface h1.title {
     margin: 0 0 12px;
-    font-family: "Titillium Web", "Noto Sans SC", "Microsoft YaHei", Verdana, Helvetica, sans-serif;
-    font-size: 38px;
-    font-weight: 400;
-    line-height: 1.2;
+    font-family: "Noto Serif", "PT Serif", "Noto Serif SC", source-han-serif-sc,
+        "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif TC",
+        "Source Han Serif TW", "Source Han Serif", "Songti SC", SimSun, serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 2em;
 }
 
 .article-meta {
@@ -284,11 +286,13 @@ body.diary-layout {
 }
 
 .article .content {
-    color: #212529;
-    font-family: "Titillium Web", "Noto Sans SC", "Microsoft YaHei", Verdana, Helvetica, sans-serif;
+    color: #343a40;
+    font-family: "Noto Serif", "PT Serif", "Noto Serif SC", source-han-serif-sc,
+        "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif TC",
+        "Source Han Serif TW", "Source Han Serif", "Songti SC", SimSun, serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.7em;
 }
 
 .article .content p,
@@ -297,17 +301,18 @@ body.diary-layout {
 .article .content blockquote,
 .article .content pre,
 .article .content table {
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .article .content a {
-    color: #1772d0;
+    color: #1b6ec2;
     text-decoration: none;
+    transition: color .5s;
 }
 
 .article .content a:hover,
 .article .content a:focus {
-    color: #f09228;
+    color: #228ae6;
     text-decoration: none;
 }
 
@@ -316,22 +321,56 @@ body.diary-layout {
     font-weight: 600;
 }
 
+.article .content h1 {
+    margin: 1em 0 16px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 2em;
+}
+
 .article .content h2 {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.4;
+    margin: 1em 0 16px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 2em;
 }
 
 .article .content h3 {
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 1.4;
+    margin: 1em 0 16px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 2em;
 }
 
 .article .content h4 {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.4;
+    margin: 1em 0 16px;
+    color: #868e96;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2em;
+}
+
+.article .content ol,
+.article .content ul {
+    margin-top: 0;
+    padding-left: 0;
+}
+
+.article .content ol > li,
+.article .content ul > li {
+    margin: 0 auto .4em 1.4em;
+    line-height: 1.55;
+}
+
+.article .content li > ol,
+.article .content li > ul {
+    margin-top: .4em;
+}
+
+.article .content li > ol > li,
+.article .content li > ul > li {
+    margin: 0 auto .38em 1.33em;
+    font-size: .95em;
 }
 
 .article .content img {
@@ -343,10 +382,12 @@ body.diary-layout {
 }
 
 .article .content blockquote {
-    padding: 10px 20px;
-    border-left: 3px solid rgba(25, 118, 210, .7);
-    background: rgba(25, 118, 210, .05);
-    color: #415973;
+    margin: 0 2rem 1rem 0;
+    padding: 0 0 0 1.4rem;
+    border-left: .2em solid #dee2e6;
+    background: transparent;
+    color: #868e96;
+    font-weight: 300;
 }
 
 .article .content code {
@@ -754,10 +795,18 @@ body.diary-layout {
     .article .title.is-3,
     .stream-surface h1.title {
         font-size: 30px;
+        line-height: 1.6em;
     }
 
     .article .content {
         font-size: 16px;
+    }
+
+    .article .content h2,
+    .article .content h3,
+    .article .content h4,
+    .article .content h1 {
+        line-height: 1.6em;
     }
 
     .post-navigation {
