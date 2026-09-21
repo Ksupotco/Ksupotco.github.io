@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SOP之CodeReading&amp;Review - ksupotco的纸罐子</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="ksupotco的纸罐子"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="ksupotco的纸罐子"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="article"><meta property="og:title" content="SOP之CodeReading&amp;Review"><meta property="og:url" content="https://ksupotco.github.io/SOP%E4%B9%8BCodeReading&amp;Review/"><meta property="og:site_name" content="ksupotco的纸罐子"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://ksupotco.github.io/img/og_image.png"><meta property="article:published_time" content="2026-09-19T16:00:00.000Z"><meta property="article:modified_time" content="2026-09-20T07:13:03.713Z"><meta property="article:author" content="ksupotco"><meta property="article:tag" content="SOP"><meta property="article:tag" content="code"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ksupotco.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ksupotco.github.io/SOP%E4%B9%8BCodeReading&Review/"},"headline":"SOP之CodeReading&Review","image":["https://ksupotco.github.io/img/og_image.png"],"datePublished":"2026-09-19T16:00:00.000Z","dateModified":"2026-09-20T07:13:03.713Z","author":{"@type":"Person","name":"ksupotco"},"publisher":{"@type":"Organization","name":"ksupotco的纸罐子","logo":{"@type":"ImageObject","url":{"text":"Ksupotco的纸罐子"}}},"description":""}</script><link rel="canonical" href="https://ksupotco.github.io/SOP%E4%B9%8BCodeReading&amp;Review/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Lora:wght@400;500&amp;family=Montserrat:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;600&amp;family=Noto+Serif:wght@400;700&amp;family=Noto+Serif+SC:wght@400;600;700&amp;family=PT+Serif:wght@400;700&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><link data-pjax rel="stylesheet" href="/css/custom.css?v=20260922-2"><!--!--><!-- hexo injector head_end start --><script>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SOP之CodeReading&amp;Review - ksupotco的纸罐子</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="ksupotco的纸罐子"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="ksupotco的纸罐子"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="如何阅读源码（尤其是论文代码）后者是前者的子集，so阅读源码有一套通用的范式可以应用在论文代码上。而且后者一般代码量比较小，还有论文原文来解释机制和模块,所以是不是感觉自己工作量更少了。这里先mark几篇我读起来特别好的文章。如何阅读论文和源代码https:&amp;#x2F;&amp;#x2F;lizec.top&amp;#x2F;2019&amp;#x2F;02&amp;#x2F;11&amp;#x2F;%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6"><meta property="og:type" content="article"><meta property="og:title" content="SOP之CodeReading&amp;Review"><meta property="og:url" content="https://ksupotco.github.io/SOP%E4%B9%8BCodeReading&amp;Review/"><meta property="og:site_name" content="ksupotco的纸罐子"><meta property="og:description" content="如何阅读源码（尤其是论文代码）后者是前者的子集，so阅读源码有一套通用的范式可以应用在论文代码上。而且后者一般代码量比较小，还有论文原文来解释机制和模块,所以是不是感觉自己工作量更少了。这里先mark几篇我读起来特别好的文章。如何阅读论文和源代码https:&amp;#x2F;&amp;#x2F;lizec.top&amp;#x2F;2019&amp;#x2F;02&amp;#x2F;11&amp;#x2F;%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://ksupotco.github.io/img/og_image.png"><meta property="article:published_time" content="2026-09-19T16:00:00.000Z"><meta property="article:modified_time" content="2026-09-21T13:05:40.861Z"><meta property="article:author" content="ksupotco"><meta property="article:tag" content="SOP"><meta property="article:tag" content="code"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ksupotco.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ksupotco.github.io/SOP%E4%B9%8BCodeReading&Review/"},"headline":"SOP之CodeReading&Review","image":["https://ksupotco.github.io/img/og_image.png"],"datePublished":"2026-09-19T16:00:00.000Z","dateModified":"2026-09-21T13:05:40.861Z","author":{"@type":"Person","name":"ksupotco"},"publisher":{"@type":"Organization","name":"ksupotco的纸罐子","logo":{"@type":"ImageObject","url":{"text":"Ksupotco的纸罐子"}}},"description":"如何阅读源码（尤其是论文代码）后者是前者的子集，so阅读源码有一套通用的范式可以应用在论文代码上。而且后者一般代码量比较小，还有论文原文来解释机制和模块,所以是不是感觉自己工作量更少了。这里先mark几篇我读起来特别好的文章。如何阅读论文和源代码https:&#x2F;&#x2F;lizec.top&#x2F;2019&#x2F;02&#x2F;11&#x2F;%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6"}</script><link rel="canonical" href="https://ksupotco.github.io/SOP%E4%B9%8BCodeReading&amp;Review/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Lora:wght@400;500&amp;family=Montserrat:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;600&amp;family=Noto+Serif:wght@400;700&amp;family=Noto+Serif+SC:wght@400;600;700&amp;family=PT+Serif:wght@400;700&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><link data-pjax rel="stylesheet" href="/css/custom.css?v=20260922-2"><!--!--><!-- hexo injector head_end start --><script>
   (function () {
       function switchTab() {
           if (!location.hash) {
@@ -29,7 +29,1349 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="diary-layout is-article-page"><div class="diary-shell" id="app"><aside class="side-container"><a class="nav-head" href="/"><span class="nav-title">ksupotco的纸罐子</span><span class="nav-subtitle">If it needs to get done,it gets done.</span></a><nav class="nav-link-list" aria-label="Primary navigation"><a class="nav-link-item" href="/">Blog</a><a class="nav-link-item" href="/categories/">Categories</a><a class="nav-link-item" href="/tags/">Tags</a><a class="nav-link-item" href="/archives/">Archive</a><a class="nav-link-item" href="/about/">About</a></nav><div class="nav-footer"><p>Theme inspired by <a href="https://byvoid.com/en/" target="_blank" rel="noopener">Diary</a>.</p><p>Generated by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></p><p>© 2026 ksupotco</p></div></aside><header class="mobile-header"><a class="mobile-brand" href="/"><span>ksupotco的纸罐子</span><small>If it needs to get done,it gets done.</small></a><div class="mobile-menu"><input class="mobile-menu-toggle" type="checkbox" id="mobile-menu-toggle"><label class="mobile-menu-label" for="mobile-menu-toggle" aria-label="打开导航菜单"><span></span><span></span><span></span></label><nav class="mobile-nav-links" aria-label="Primary navigation"><a class="nav-link-item" href="/">Blog</a><a class="nav-link-item" href="/categories/">Categories</a><a class="nav-link-item" href="/tags/">Tags</a><a class="nav-link-item" href="/archives/">Archive</a><a class="nav-link-item" href="/about/">About</a></nav></div></header><main class="stream-container" id="content"><div class="stream-surface"><div class="article-content-column"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-09-19T16:00:00.000Z" title="2026/9/20 00:00:00">2026-09-20</time>发表</span><span class="level-item"><time dateTime="2026-09-20T07:13:03.713Z" title="2026/9/20 15:13:03">2026-09-20</time>更新</span></div></div><h1 class="title is-3 is-size-4-mobile">SOP之CodeReading&amp;Review</h1><div class="content"></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/SOP/">SOP</a><a class="link-muted mr-2" rel="tag" href="/tags/code/">code</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Survey%E9%98%85%E8%AF%BB%E4%B9%8BFrom%20Storage%20to%20Experience-A%20Survey%20on%20the%20Evolution%20of%20LLM%20Agent%20Memory%20Mechanisms/"><span class="level-item">Survey阅读之 From Storage to Experience-A Survey on the Evolution of LLM Agent Memory Mechanisms</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div></div></main><aside class="utility-panel" aria-label="博客工具"><section class="calendar-widget" aria-label="文章日历"><div class="calendar-head"><h2 class="calendar-title"><span data-calendar-month>Sep</span><strong data-calendar-year>2026</strong></h2><div class="calendar-actions"><button type="button" data-calendar-prev aria-label="上个月">‹</button><button class="calendar-today" type="button" data-calendar-today>TODAY</button><button type="button" data-calendar-next aria-label="下个月">›</button></div></div><div class="calendar-weekdays" aria-hidden="true"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div><div class="calendar-grid" data-calendar-grid></div><div class="calendar-selection" data-calendar-selection aria-live="polite"></div></section><section class="fortune-widget" aria-label="纸罐抽签"><button class="fortune-jar" type="button" data-fortune-jar aria-label="从纸罐中抽取一句话"><svg viewBox="0 0 96 96" role="img" aria-hidden="true"><path d="M31 25h34M35 18h26M32 31h32l-3 43H35l-3-43Z"></path><path d="M39 43c6-4 12 4 18 0M39 53c6 4 12-4 18 0M42 63h12"></path></svg><span>抽一张纸条</span></button></section><script id="calendar-post-data" type="application/json">{"2026-09-20":[{"title":"SOP之CodeReading&Review","url":"/SOP%E4%B9%8BCodeReading&Review/"},{"title":"Survey阅读之 From Storage to Experience-A Survey on the Evolution of LLM Agent Memory Mechanisms","url":"/Survey%E9%98%85%E8%AF%BB%E4%B9%8BFrom%20Storage%20to%20Experience-A%20Survey%20on%20the%20Evolution%20of%20LLM%20Agent%20Memory%20Mechanisms/"},{"title":"SOP之论文阅读","url":"/SOP%E4%B9%8B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"},{"title":"读书笔记之--《人间游戏-人际关系心理学》","url":"/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B--%E3%80%8A%E4%BA%BA%E9%97%B4%E6%B8%B8%E6%88%8F-%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B/"}],"2026-09-19":[{"title":"对未来的思考，模糊的计划和我的幻觉","url":"/%E5%AF%B9%E6%9C%AA%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%8C%E6%A8%A1%E7%B3%8A%E7%9A%84%E8%AE%A1%E5%88%92/"},{"title":"记一个小小的创作灵感","url":"/%E8%AE%B0%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%B0%8F%E7%9A%84%E5%88%9B%E4%BD%9C%E7%81%B5%E6%84%9F/"}],"2026-09-18":[{"title":"读书笔记之--《时间机器》","url":"/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B--%E3%80%8A%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8%E3%80%8B/"}],"2026-09-17":[{"title":"为什么我决定每天写博客，以及对于学习的思考","url":"/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%86%B3%E5%AE%9A%E6%AF%8F%E5%A4%A9%E5%86%99%E5%8D%9A%E5%AE%A2%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%AF%B9%E4%BA%8E%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%80%9D%E8%80%83/"}],"2026-04-13":[{"title":"大模型的训练和推理吃多少显存","url":"/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83%E5%92%8C%E6%8E%A8%E7%90%86%E5%90%83%E5%A4%9A%E5%B0%91%E6%98%BE%E5%AD%98-math%20transformer/"}]}</script><div class="fortune-message" data-fortune-message role="status" aria-live="polite"></div></aside><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Ksupotco的纸罐子</a><p class="is-size-7"><span>&copy; 2026 ksupotco</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer></div><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="diary-layout is-article-page has-article-toc"><div class="diary-shell" id="app"><aside class="side-container"><a class="nav-head" href="/"><span class="nav-title">ksupotco的纸罐子</span><span class="nav-subtitle">If it needs to get done,it gets done.</span></a><nav class="nav-link-list" aria-label="Primary navigation"><a class="nav-link-item" href="/">Blog</a><a class="nav-link-item" href="/categories/">Categories</a><a class="nav-link-item" href="/tags/">Tags</a><a class="nav-link-item" href="/archives/">Archive</a><a class="nav-link-item" href="/about/">About</a></nav><div class="nav-footer"><p>Theme inspired by <a href="https://byvoid.com/en/" target="_blank" rel="noopener">Diary</a>.</p><p>Generated by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></p><p>© 2026 ksupotco</p></div></aside><header class="mobile-header"><a class="mobile-brand" href="/"><span>ksupotco的纸罐子</span><small>If it needs to get done,it gets done.</small></a><div class="mobile-menu"><input class="mobile-menu-toggle" type="checkbox" id="mobile-menu-toggle"><label class="mobile-menu-label" for="mobile-menu-toggle" aria-label="打开导航菜单"><span></span><span></span><span></span></label><nav class="mobile-nav-links" aria-label="Primary navigation"><a class="nav-link-item" href="/">Blog</a><a class="nav-link-item" href="/categories/">Categories</a><a class="nav-link-item" href="/tags/">Tags</a><a class="nav-link-item" href="/archives/">Archive</a><a class="nav-link-item" href="/about/">About</a></nav></div></header><main class="stream-container" id="content"><div class="stream-surface"><aside class="article-toc" aria-label="文章目录"><div class="article-toc-title">目录</div><div class="article-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#preparation"><span class="toc-text">preparation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Control-Flow"><span class="toc-text">Control Flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Flow"><span class="toc-text">Data Flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State-Flow"><span class="toc-text">State Flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dependency"><span class="toc-text">Dependency</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A8%A1%E5%9D%97%E4%BE%9D%E8%B5%96%E4%B8%8E%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB"><span class="toc-text">1. 模块依赖与对象关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E4%B8%8E%E6%8E%A7%E5%88%B6%E5%85%B3%E7%B3%BB"><span class="toc-text">2. 函数调用与控制关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E6%B5%81%E8%AF%81%E6%8D%AE"><span class="toc-text">3. 数据流证据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA%E8%BE%B9%E7%95%8C"><span class="toc-text">4. 输入和输出边界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8C%81%E4%B9%85%E5%8C%96%E4%B8%8E-Memory"><span class="toc-text">5. 持久化与 Memory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%9D%A1%E4%BB%B6%E4%B8%8E%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="toc-text">6. 条件与控制流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%BE%AA%E7%8E%AF%E4%B8%8E-Agent-Loop"><span class="toc-text">7. 循环与 Agent Loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%B9%B6%E5%8F%91"><span class="toc-text">8. 异步与并发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%B6%88%E6%81%AF%E6%9E%B6%E6%9E%84"><span class="toc-text">9. 事件与消息架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Factory-Registry-Plugin"><span class="toc-text">10. Factory &#x2F; Registry &#x2F; Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E9%85%8D%E7%BD%AE%E9%A9%B1%E5%8A%A8%E6%9E%B6%E6%9E%84"><span class="toc-text">11. 配置驱动架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-Decorator"><span class="toc-text">12. Decorator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-Callback-Hook"><span class="toc-text">13. Callback &#x2F; Hook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-Context-Manager"><span class="toc-text">14. Context Manager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-LLM-Agent-%E7%89%B9%E6%9C%89%E8%AF%81%E6%8D%AE"><span class="toc-text">15. LLM &#x2F; Agent 特有证据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-Web-API-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%85%B8%E5%9E%8B%E8%AF%81%E6%8D%AE"><span class="toc-text">16. Web&#x2F;API 项目的典型证据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%9C%AC%E8%BA%AB%E4%B9%9F%E6%98%AF%E6%9E%B6%E6%9E%84%E8%AF%81%E6%8D%AE"><span class="toc-text">17. 数据类型本身也是架构证据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B9%9F%E6%98%AF%E6%9E%B6%E6%9E%84%E8%AF%81%E6%8D%AE"><span class="toc-text">18. 错误处理也是架构证据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-%E6%97%A5%E5%BF%97%E3%80%81%E7%9B%91%E6%8E%A7%E5%92%8C-tracing"><span class="toc-text">19. 日志、监控和 tracing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-Tests-%E5%8F%8D%E8%80%8C%E7%BB%8F%E5%B8%B8%E6%98%AF%E7%90%86%E8%A7%A3%E6%9E%B6%E6%9E%84%E7%9A%84%E6%8D%B7%E5%BE%84"><span class="toc-text">20. Tests 反而经常是理解架构的捷径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%B8%80%E5%BC%A0%E2%80%9C%E5%BF%83%E6%99%BA%E7%BF%BB%E8%AF%91%E8%A1%A8%E2%80%9D"><span class="toc-text">最重要的一张“心智翻译表”</span></a></li></ol></div></aside><div class="article-content-column"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-09-19T16:00:00.000Z" title="2026/9/20 00:00:00">2026-09-20</time>发表</span><span class="level-item"><time dateTime="2026-09-21T13:05:40.861Z" title="2026/9/21 21:05:40">2026-09-21</time>更新</span></div></div><h1 class="title is-3 is-size-4-mobile">SOP之CodeReading&amp;Review</h1><div class="content"><h1 id="如何阅读源码（尤其是论文代码）"><a href="#如何阅读源码（尤其是论文代码）" class="headerlink" title="如何阅读源码（尤其是论文代码）"></a>如何阅读源码（尤其是论文代码）</h1><p>后者是前者的子集，so阅读源码有一套通用的范式可以应用在论文代码上。而且后者一般代码量比较小，还有论文原文来解释机制和模块,所以是不是感觉自己工作量更少了。这里先mark几篇我读起来特别好的文章。<br>如何阅读论文和源代码<br><a target="_blank" rel="noopener" href="https://lizec.top/2019/02/11/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87%E5%92%8C%E6%BA%90%E4%BB%A3%E7%A0%81/">https://lizec.top/2019/02/11/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87%E5%92%8C%E6%BA%90%E4%BB%A3%E7%A0%81/</a><br>如何阅读一份代码<br><a target="_blank" rel="noopener" href="https://gist.github.com/baymaxium/bd9932b7288aac6e5f7b510624b8b3e6">https://gist.github.com/baymaxium/bd9932b7288aac6e5f7b510624b8b3e6</a><br>我们阅读代码，首先要能读懂，其次是从中学习优秀代码的架构方式。读懂是一个过于宽泛的概念，在这里我们把它定义成建立一个完成当前任务的模型，并且据此预测代码行为。也就是说，至少我需要能够回答“给它什么，它会经过什么过程，在什么条件下改变什么状态，最终产生什么结果；如果我要改某个行为，应该改哪里？”类似这些问题。<br>那么我们会思考，一份项目源码通常是由什么组成的。在这里我们提炼出：</p>
+<blockquote>
+<p>Program=input+transformers+state+control+output</p>
+</blockquote>
+<pre><code>     Control
+        ↓
+</code></pre><p>Input → Transformation → Output<br>             ↕<br>            State</p>
+<p>那么现在我们至少可以确定接下来要关注什么。下一步就是思考怎么才能够从源码中得到我们想要的上述信息。<br>我们以一个小仓库为例来展示和练习。<br><a target="_blank" rel="noopener" href="https://github.com/serhii-kucherenko/agent-memory-system?utm_source=chatgpt.com">https://github.com/serhii-kucherenko/agent-memory-system?utm_source=chatgpt.com</a></p>
+<h2 id="preparation"><a href="#preparation" class="headerlink" title="preparation"></a>preparation</h2><p>![[Pasted image 20260921153949.png]]</p>
+<p>看目录猜功能。。我们大概能看出step1文件夹包含该项目主要功能，agent_loop八成是我们的主文件，下面两个可能是依赖。<br>然后进去，看一下依赖验证我们的猜测<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> google <span class="keyword">import</span> genai</span><br><span class="line"><span class="keyword">from</span> google.genai <span class="keyword">import</span> types</span><br><span class="line"><span class="keyword">from</span> .memory_store <span class="keyword">import</span> MemoryStore</span><br><span class="line"><span class="keyword">from</span> .memory_types <span class="keyword">import</span> Episode, MemoryType</span><br></pre></td></tr></table></figure><br>接下来找到入口是main(),阅读<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Interactive demo — requires GOOGLE_API_KEY.&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    agent = AgentLoop()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Agent loop ready. Type &#x27;quit&#x27; to exit.\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">        user_input = <span class="built_in">input</span>(<span class="string">&quot;You: &quot;</span>).strip()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> user_input.lower() <span class="keyword">in</span> (<span class="string">&quot;quit&quot;</span>, <span class="string">&quot;exit&quot;</span>):</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        response = agent.step(user_input)</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Agent: <span class="subst">&#123;response&#125;</span>\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;  [Memory store: <span class="subst">&#123;agent.store.count()&#125;</span> episodes]\n&quot;</span>)</span><br></pre></td></tr></table></figure><br>看这一行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  response = agent.step(user_input)</span><br></pre></td></tr></table></figure><br>我们自然而然地来看step()<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">def</span> <span class="title function_">step</span>(<span class="params">self, user_input: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 1. Perceive</span></span><br><span class="line"></span><br><span class="line">        intent = <span class="variable language_">self</span>._perceive(user_input)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        <span class="comment"># 2. Retrieve</span></span><br><span class="line"></span><br><span class="line">        memories = <span class="variable language_">self</span>.store.retrieve(</span><br><span class="line"></span><br><span class="line">            query=user_input,</span><br><span class="line"></span><br><span class="line">            top_k=<span class="number">5</span>,</span><br><span class="line"></span><br><span class="line">            user_id=<span class="variable language_">self</span>.user_id,</span><br><span class="line"></span><br><span class="line">            project_id=<span class="variable language_">self</span>.project_id,</span><br><span class="line"></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        <span class="comment"># 3. Plan</span></span><br><span class="line"></span><br><span class="line">        context = <span class="variable language_">self</span>._build_context(intent, memories)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        <span class="comment"># 4. Execute</span></span><br><span class="line"></span><br><span class="line">        response = <span class="variable language_">self</span>._execute(context, user_input)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        <span class="comment"># 5. Reflect</span></span><br><span class="line"></span><br><span class="line">        lesson = <span class="variable language_">self</span>._reflect(user_input, response)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        <span class="comment"># 6. Memorize</span></span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>._memorize(user_input, response, lesson)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure></p>
+<h2 id="Control-Flow"><a href="#Control-Flow" class="headerlink" title="Control Flow"></a>Control Flow</h2><p>以step()为例说明如何看control flow<br>perceive-&gt;retrieve-&gt;build-&gt;execute-&gt;reflect-&gt;memorize<br>control flow看函数</p>
+<h2 id="Data-Flow"><a href="#Data-Flow" class="headerlink" title="Data Flow"></a>Data Flow</h2><p>以step()为例说明如何看data flow<br>user_input-&gt;intent/memories-&gt;context-&gt;response-&gt;lesson<br>data flow看变量<br>非简化版<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">     user_input</span><br><span class="line">      /   |   \</span><br><span class="line">     /    |    \</span><br><span class="line">    ↓     |     |</span><br><span class="line">perceive  |     |</span><br><span class="line">    ↓     |     |</span><br><span class="line">  intent  |     |</span><br><span class="line">    \     |     |</span><br><span class="line">     \    |     |</span><br><span class="line">      ↓   ↓     |</span><br><span class="line">      retrieve  |</span><br><span class="line">         ↓      |</span><br><span class="line">      memories  |</span><br><span class="line">         \      |</span><br><span class="line">          \     |</span><br><span class="line">           ↓    |</span><br><span class="line">   build_context</span><br><span class="line">           ↓</span><br><span class="line">        context</span><br><span class="line">           \ </span><br><span class="line">            \</span><br><span class="line">             ↓</span><br><span class="line">          execute</span><br><span class="line">             ↓</span><br><span class="line">          response</span><br><span class="line">          /      \</span><br><span class="line">         /        \</span><br><span class="line">        ↓          ↓</span><br><span class="line">     reflect    return</span><br><span class="line">        ↓</span><br><span class="line">      lesson</span><br><span class="line">        ↓</span><br><span class="line">    memorize</span><br></pre></td></tr></table></figure></p>
+<h2 id="State-Flow"><a href="#State-Flow" class="headerlink" title="State Flow"></a>State Flow</h2><p>重点看self.类型，/数据库 / 文件 / MemoryStore 以及被 append / update / save / add / delete 的东西</p>
+<p>把做的小练习放在这里<br>State 1: conversation<br>初始化：self.conversation = []<br>读取位置：_execute()<br>修改位置：_execute()<br>作用：保存最近对话，使后续 step 能看到之前的 conversation。<br>State 2: MemoryStore._episodes<br>初始化：self._episodes = {}<br>读取位置：retrieve() get() list_all() _filter() count()<br>修改位置：store() delete()<br>作用：保存 Episode，使过去产生的 memory 可以在未来再次被读取。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">step₁</span><br><span class="line"> ↓</span><br><span class="line">memorize()</span><br><span class="line"> ↓</span><br><span class="line">store()</span><br><span class="line"> ↓</span><br><span class="line">_episodes 从 &#123;&#125; 变成 &#123;episode1, episode2&#125;</span><br><span class="line"></span><br><span class="line">step₂</span><br><span class="line"> ↓</span><br><span class="line">retrieve()</span><br><span class="line"> ↓</span><br><span class="line">读取 episode1 / episode2</span><br><span class="line"> ↓</span><br><span class="line">这些旧 memory 影响新的回答</span><br><span class="line"> ↓</span><br><span class="line">memorize()</span><br><span class="line"> ↓</span><br><span class="line">_episodes 又增加</span><br></pre></td></tr></table></figure></p>
+<h2 id="Dependency"><a href="#Dependency" class="headerlink" title="Dependency"></a>Dependency</h2><p>先只看<br>AgentLoop<br>MemoryStore<br>Episode<br>想要判断依赖关系，我们通常在<br>import  _init__  self.xxx  类型标注  方法调用  里寻找<br>阅读源码，我们在agentloop class里发现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">store: MemoryStore</span><br><span class="line"><span class="variable language_">self</span>.store = store <span class="keyword">or</span> MemoryStore()</span><br><span class="line">memories = <span class="variable language_">self</span>.store.retrieve(...)</span><br><span class="line"><span class="variable language_">self</span>.store.store(Episode(...))</span><br></pre></td></tr></table></figure><br>由此推断Agentloop depends on MemoryStore，调用后者的功能。<br>然后，在MemoryStore<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MemoryStore</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>._episodes: <span class="built_in">dict</span>[<span class="built_in">str</span>, Episode] = &#123;&#125;</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">store</span>(<span class="params">self, episode: Episode</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, episode_id: <span class="built_in">str</span></span>) -&gt; <span class="type">Optional</span>[Episode]:</span><br></pre></td></tr></table></figure></p>
+<h1 id="源码阅读表。"><a href="#源码阅读表。" class="headerlink" title="源码阅读表。"></a>源码阅读表。</h1><h3 id="1-模块依赖与对象关系"><a href="#1-模块依赖与对象关系" class="headerlink" title="1. 模块依赖与对象关系"></a>1. 模块依赖与对象关系</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>看到的代码</th>
+<th>语法层</th>
+<th>架构层应该想到</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>import X</code></td>
+<td>导入模块</td>
+<td>当前模块可能依赖 X</td>
+</tr>
+<tr>
+<td><code>from X import Y</code></td>
+<td>导入 Y</td>
+<td>当前模块直接依赖 X.Y</td>
+</tr>
+<tr>
+<td><code>x = X()</code></td>
+<td>创建对象</td>
+<td>当前模块负责构造 X</td>
+</tr>
+<tr>
+<td><code>self.x = X()</code></td>
+<td>保存对象</td>
+<td>当前对象拥有 X，通常是 Composition</td>
+</tr>
+<tr>
+<td><code>self.x = x</code></td>
+<td>保存外部对象</td>
+<td>X 可能通过 Dependency Injection 注入</td>
+</tr>
+<tr>
+<td><code>A(B)</code></td>
+<td>继承</td>
+<td>A 是 B 的一种特殊实现</td>
+</tr>
+<tr>
+<td><code>class A:</code></td>
+<td>定义对象</td>
+<td>一个职责/领域概念/服务的边界</td>
+</tr>
+<tr>
+<td><code>@abstractmethod</code></td>
+<td>抽象方法</td>
+<td>定义接口，实际实现可以替换</td>
+</tr>
+<tr>
+<td><code>Protocol / ABC</code></td>
+<td>接口约束</td>
+<td>存在插件式/可替换架构</td>
+</tr>
+<tr>
+<td><code>isinstance(x, X)</code></td>
+<td>类型判断</td>
+<td>行为根据具体实现分叉</td>
+</tr>
+<tr>
+<td><code>super().foo()</code></td>
+<td>父类调用</td>
+<td>当前实现扩展基础行为</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="2-函数调用与控制关系"><a href="#2-函数调用与控制关系" class="headerlink" title="2. 函数调用与控制关系"></a>2. 函数调用与控制关系</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>架构证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x.foo()</code></td>
+<td>当前模块调用 x 的能力</td>
+</tr>
+<tr>
+<td><code>self.foo()</code></td>
+<td>当前对象内部职责调用</td>
+</tr>
+<tr>
+<td><code>foo()</code></td>
+<td>当前作用域调用另一个函数</td>
+</tr>
+<tr>
+<td><code>return foo()</code></td>
+<td>当前层可能只是包装/转发</td>
+</tr>
+<tr>
+<td><code>a = foo()</code></td>
+<td><code>foo → a</code> 数据流</td>
+</tr>
+<tr>
+<td><code>foo(a)</code></td>
+<td><code>a → foo</code> 数据流</td>
+</tr>
+<tr>
+<td><code>foo(a, b)</code></td>
+<td>foo 同时依赖 a、b</td>
+</tr>
+<tr>
+<td><code>callback(x)</code></td>
+<td>控制权交给外部 callback</td>
+</tr>
+<tr>
+<td><code>handler.handle(x)</code></td>
+<td>Handler 模式</td>
+</tr>
+<tr>
+<td><code>service.execute(x)</code></td>
+<td>Service/Application 层调用</td>
+</tr>
+<tr>
+<td><code>manager.run()</code></td>
+<td>Manager 负责生命周期/流程协调</td>
+</tr>
+<tr>
+<td><code>controller.xxx()</code></td>
+<td>Controller 往往是入口层</td>
+</tr>
+<tr>
+<td><code>pipeline.run()</code></td>
+<td>数据经过流水线处理</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>尤其注意：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = retriever.retrieve(query)</span><br><span class="line">answer = generator.generate(query, result)</span><br></pre></td></tr></table></figure>
+<p>应该直接翻译为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">query</span><br><span class="line">  ↓</span><br><span class="line">Retriever</span><br><span class="line">  ↓</span><br><span class="line">results</span><br><span class="line">  ↓</span><br><span class="line">Generator</span><br><span class="line">  ↓</span><br><span class="line">answer</span><br></pre></td></tr></table></figure>
+<p>同时还能得到结构：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">       Agent</span><br><span class="line">      /     \</span><br><span class="line">Retriever   Generator</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-数据流证据"><a href="#3-数据流证据" class="headerlink" title="3. 数据流证据"></a>3. 数据流证据</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>数据流含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = foo(y)</code></td>
+<td><code>y → foo → x</code></td>
+</tr>
+<tr>
+<td><code>return x</code></td>
+<td><code>x → 调用者</code></td>
+</tr>
+<tr>
+<td><code>yield x</code></td>
+<td>流式产生数据</td>
+</tr>
+<tr>
+<td><code>x.append(y)</code></td>
+<td>y 进入 x</td>
+</tr>
+<tr>
+<td><code>x.extend(y)</code></td>
+<td>一批数据进入 x</td>
+</tr>
+<tr>
+<td><code>x.update(y)</code></td>
+<td>x 状态被 y 修改</td>
+</tr>
+<tr>
+<td><code>x[key] = value</code></td>
+<td>修改结构化状态</td>
+</tr>
+<tr>
+<td><code>obj.attr = x</code></td>
+<td>x 写入对象状态</td>
+</tr>
+<tr>
+<td><code>state[&quot;x&quot;] = ...</code></td>
+<td>Agent / Workflow 状态变化</td>
+</tr>
+<tr>
+<td><code>state = foo(state)</code></td>
+<td>状态转换</td>
+</tr>
+<tr>
+<td><code>input → preprocess → model → postprocess</code></td>
+<td>典型 Pipeline</td>
+</tr>
+<tr>
+<td><code>json.loads(...)</code></td>
+<td>外部字符串 → 程序对象</td>
+</tr>
+<tr>
+<td><code>json.dumps(...)</code></td>
+<td>程序对象 → 可传输数据</td>
+</tr>
+<tr>
+<td><code>model_dump()</code></td>
+<td>Model → dict/json</td>
+</tr>
+<tr>
+<td><code>parse(...)</code></td>
+<td>原始数据 → 结构化数据</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>读到：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">messages.append(response)</span><br></pre></td></tr></table></figure>
+<p>不要只记：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list append</span><br></pre></td></tr></table></figure>
+<p>而要读成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response 被加入 conversation state</span><br></pre></td></tr></table></figure>
+<p>如果是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">state[<span class="string">&quot;messages&quot;</span>].append(response)</span><br></pre></td></tr></table></figure>
+<p>则进一步读成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Agent 的显式状态发生变化</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="4-输入和输出边界"><a href="#4-输入和输出边界" class="headerlink" title="4. 输入和输出边界"></a>4. 输入和输出边界</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>意味着什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>def foo(x)</code></td>
+<td>x 是这个模块的输入</td>
+</tr>
+<tr>
+<td><code>return x</code></td>
+<td>x 是模块输出</td>
+</tr>
+<tr>
+<td><code>input()</code></td>
+<td>CLI 输入</td>
+</tr>
+<tr>
+<td><code>argparse</code></td>
+<td>CLI 参数入口</td>
+</tr>
+<tr>
+<td><code>request.xxx</code></td>
+<td>HTTP 请求输入</td>
+</tr>
+<tr>
+<td><code>response.xxx</code></td>
+<td>HTTP 输出</td>
+</tr>
+<tr>
+<td><code>@app.get(...)</code></td>
+<td>GET API 入口</td>
+</tr>
+<tr>
+<td><code>@app.post(...)</code></td>
+<td>POST API 入口</td>
+</tr>
+<tr>
+<td><code>router.xxx()</code></td>
+<td>路由层</td>
+</tr>
+<tr>
+<td><code>stdin</code></td>
+<td>标准输入</td>
+</tr>
+<tr>
+<td><code>stdout</code></td>
+<td>标准输出</td>
+</tr>
+<tr>
+<td><code>open(file)</code></td>
+<td>文件系统边界</td>
+</tr>
+<tr>
+<td><code>os.environ[...]</code></td>
+<td>环境配置输入</td>
+</tr>
+<tr>
+<td><code>sys.argv</code></td>
+<td>命令行输入</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/chat&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">chat</span>(<span class="params">request: ChatRequest</span>):</span><br></pre></td></tr></table></figure>
+<p>架构上你应该立刻看到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP Client</span><br><span class="line">    ↓</span><br><span class="line">POST /chat</span><br><span class="line">    ↓</span><br><span class="line">Controller/API Layer</span><br><span class="line">    ↓</span><br><span class="line">ChatRequest</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="5-持久化与-Memory"><a href="#5-持久化与-Memory" class="headerlink" title="5. 持久化与 Memory"></a>5. 持久化与 Memory</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>架构含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>store.save(x)</code></td>
+<td>x → 持久层</td>
+</tr>
+<tr>
+<td><code>store.add(x)</code></td>
+<td>数据进入 Storage</td>
+</tr>
+<tr>
+<td><code>store.insert(x)</code></td>
+<td>新数据写入</td>
+</tr>
+<tr>
+<td><code>store.update(x)</code></td>
+<td>已有数据被更新</td>
+</tr>
+<tr>
+<td><code>store.delete(x)</code></td>
+<td>删除持久状态</td>
+</tr>
+<tr>
+<td><code>store.get(id)</code></td>
+<td>Storage → 程序</td>
+</tr>
+<tr>
+<td><code>store.load(...)</code></td>
+<td>Storage → 程序</td>
+</tr>
+<tr>
+<td><code>store.search(q)</code></td>
+<td>根据 q 查询</td>
+</tr>
+<tr>
+<td><code>retriever.retrieve(q)</code></td>
+<td>查询 → 检索结果</td>
+</tr>
+<tr>
+<td><code>db.execute(...)</code></td>
+<td>数据库边界</td>
+</tr>
+<tr>
+<td><code>session.commit()</code></td>
+<td>真正提交数据库变更</td>
+</tr>
+<tr>
+<td><code>session.query(...)</code></td>
+<td>DB → Application</td>
+</tr>
+<tr>
+<td><code>vector_db.add(...)</code></td>
+<td>embedding/data → Vector DB</td>
+</tr>
+<tr>
+<td><code>similarity_search(...)</code></td>
+<td>query → Vector DB → memories</td>
+</tr>
+<tr>
+<td><code>cache.get()</code></td>
+<td>Cache → 程序</td>
+</tr>
+<tr>
+<td><code>cache.set()</code></td>
+<td>程序 → Cache</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">memory = store.search(query)</span><br></pre></td></tr></table></figure>
+<p>直接翻译：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">query</span><br><span class="line"> ↓</span><br><span class="line">Memory Store</span><br><span class="line"> ↓</span><br><span class="line">memory</span><br></pre></td></tr></table></figure>
+<p>如果接下来：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prompt = build_prompt(query, memory)</span><br></pre></td></tr></table></figure>
+<p>就是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">query ───────────────┐</span><br><span class="line">                     ↓</span><br><span class="line">query → MemoryStore → memory</span><br><span class="line">                     ↓</span><br><span class="line">                PromptBuilder</span><br><span class="line">                     ↓</span><br><span class="line">                   prompt</span><br></pre></td></tr></table></figure>
+<p>这已经是在读 Agent Memory 架构了。</p>
+<hr>
+<h3 id="6-条件与控制流"><a href="#6-条件与控制流" class="headerlink" title="6. 条件与控制流"></a>6. 条件与控制流</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>架构含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>if</code></td>
+<td>流程分叉</td>
+</tr>
+<tr>
+<td><code>elif</code></td>
+<td>多策略选择</td>
+</tr>
+<tr>
+<td><code>else</code></td>
+<td>fallback</td>
+</tr>
+<tr>
+<td><code>match/case</code></td>
+<td>状态机/多类型调度</td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>当前流程终止</td>
+</tr>
+<tr>
+<td><code>break</code></td>
+<td>循环退出</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>跳过当前循环</td>
+</tr>
+<tr>
+<td><code>raise</code></td>
+<td>异常路径</td>
+</tr>
+<tr>
+<td><code>try/except</code></td>
+<td>错误处理/降级</td>
+</tr>
+<tr>
+<td><code>finally</code></td>
+<td>无论成功失败都执行</td>
+</tr>
+<tr>
+<td><code>assert</code></td>
+<td>假设/不变量</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>例如 Agent：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> action == <span class="string">&quot;search&quot;</span>:</span><br><span class="line">    search()</span><br><span class="line"><span class="keyword">elif</span> action == <span class="string">&quot;answer&quot;</span>:</span><br><span class="line">    answer()</span><br></pre></td></tr></table></figure>
+<p>应该看到的不是普通 <code>if</code>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LLM Decision</span><br><span class="line">    ↓</span><br><span class="line">  action</span><br><span class="line">   /   \</span><br><span class="line">search answer</span><br></pre></td></tr></table></figure>
+<p>这很可能就是 Agent 的 action router。</p>
+<hr>
+<h3 id="7-循环与-Agent-Loop"><a href="#7-循环与-Agent-Loop" class="headerlink" title="7. 循环与 Agent Loop"></a>7. 循环与 Agent Loop</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>架构解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>for x in xs</code></td>
+<td>批量处理</td>
+</tr>
+<tr>
+<td><code>while True</code></td>
+<td>生命周期循环</td>
+</tr>
+<tr>
+<td><code>while not done</code></td>
+<td>任务执行循环</td>
+</tr>
+<tr>
+<td><code>for step in range(max_steps)</code></td>
+<td>有最大步数的 Agent loop</td>
+</tr>
+<tr>
+<td><code>break</code></td>
+<td>Agent termination</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>进入下一轮</td>
+</tr>
+<tr>
+<td><code>state = update(state)</code></td>
+<td>状态迭代</td>
+</tr>
+<tr>
+<td><code>observe → think → act</code></td>
+<td>Agent loop</td>
+</tr>
+<tr>
+<td><code>plan → execute → observe</code></td>
+<td>Planner-Agent</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>特别看到：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(max_steps):</span><br><span class="line">    action = agent.plan(state)</span><br><span class="line">    result = tools.execute(action)</span><br><span class="line">    state = update(state, result)</span><br></pre></td></tr></table></figure>
+<p>应该立刻还原：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">     ┌───────────────┐</span><br><span class="line">     ↓               │</span><br><span class="line">   State             │</span><br><span class="line">     ↓               │</span><br><span class="line">   Agent             │</span><br><span class="line">     ↓               │</span><br><span class="line">   Action            │</span><br><span class="line">     ↓               │</span><br><span class="line">   Tools             │</span><br><span class="line">     ↓               │</span><br><span class="line">   Result            │</span><br><span class="line">     ↓               │</span><br><span class="line">Update State ────────┘</span><br></pre></td></tr></table></figure>
+<p>这是完整的 Agent Loop。</p>
+<hr>
+<h3 id="8-异步与并发"><a href="#8-异步与并发" class="headerlink" title="8. 异步与并发"></a>8. 异步与并发</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>结构含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>async def</code></td>
+<td>异步任务</td>
+</tr>
+<tr>
+<td><code>await foo()</code></td>
+<td>等待 I/O 或异步任务</td>
+</tr>
+<tr>
+<td><code>asyncio.gather()</code></td>
+<td>多任务并行等待</td>
+</tr>
+<tr>
+<td><code>create_task()</code></td>
+<td>创建独立任务</td>
+</tr>
+<tr>
+<td><code>queue.put()</code></td>
+<td>生产任务</td>
+</tr>
+<tr>
+<td><code>queue.get()</code></td>
+<td>消费任务</td>
+</tr>
+<tr>
+<td><code>Thread()</code></td>
+<td>多线程</td>
+</tr>
+<tr>
+<td><code>Process()</code></td>
+<td>多进程</td>
+</tr>
+<tr>
+<td><code>Lock()</code></td>
+<td>共享资源同步</td>
+</tr>
+<tr>
+<td><code>Semaphore()</code></td>
+<td>并发数量限制</td>
+</tr>
+<tr>
+<td><code>worker()</code></td>
+<td>Worker 架构</td>
+</tr>
+<tr>
+<td><code>executor.submit()</code></td>
+<td>任务提交到执行池</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> asyncio.gather(</span><br><span class="line">    search_web(),</span><br><span class="line">    search_memory(),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>你应该读成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      Query</span><br><span class="line">     /     \</span><br><span class="line">Web Search  Memory Search</span><br><span class="line">     \     /</span><br><span class="line">      Results</span><br></pre></td></tr></table></figure>
+<p>即两个模块没有顺序依赖，可以并发。</p>
+<hr>
+<h3 id="9-事件与消息架构"><a href="#9-事件与消息架构" class="headerlink" title="9. 事件与消息架构"></a>9. 事件与消息架构</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>emit(event)</code></td>
+<td>发布事件</td>
+</tr>
+<tr>
+<td><code>publish(msg)</code></td>
+<td>Message Producer</td>
+</tr>
+<tr>
+<td><code>subscribe(...)</code></td>
+<td>Message Consumer</td>
+</tr>
+<tr>
+<td><code>on_event(...)</code></td>
+<td>Event Handler</td>
+</tr>
+<tr>
+<td><code>queue.put(task)</code></td>
+<td>Producer → Queue</td>
+</tr>
+<tr>
+<td><code>queue.get()</code></td>
+<td>Queue → Consumer</td>
+</tr>
+<tr>
+<td><code>consumer.consume()</code></td>
+<td>消费消息</td>
+</tr>
+<tr>
+<td><code>broker.publish()</code></td>
+<td>消息队列边界</td>
+</tr>
+<tr>
+<td><code>send()</code></td>
+<td>消息传递</td>
+</tr>
+<tr>
+<td><code>recv()</code></td>
+<td>接收消息</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>结构一般是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Producer</span><br><span class="line">   ↓</span><br><span class="line">Queue / Broker</span><br><span class="line">   ↓</span><br><span class="line">Consumer</span><br></pre></td></tr></table></figure>
+<p>而不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A → B</span><br></pre></td></tr></table></figure>
+<p>这意味着 A 和 B 可能是解耦的。</p>
+<hr>
+<h3 id="10-Factory-Registry-Plugin"><a href="#10-Factory-Registry-Plugin" class="headerlink" title="10. Factory / Registry / Plugin"></a>10. Factory / Registry / Plugin</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>结构含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>create_model(name)</code></td>
+<td>Factory</td>
+</tr>
+<tr>
+<td><code>build_agent(config)</code></td>
+<td>Factory</td>
+</tr>
+<tr>
+<td><code>get_backend(type)</code></td>
+<td>根据配置选择实现</td>
+</tr>
+<tr>
+<td><code>registry[&quot;x&quot;] = X</code></td>
+<td>注册机制</td>
+</tr>
+<tr>
+<td><code>@register(&quot;xxx&quot;)</code></td>
+<td>插件注册</td>
+</tr>
+<tr>
+<td><code>registry.get(name)</code></td>
+<td>动态查找实现</td>
+</tr>
+<tr>
+<td><code>importlib.import_module()</code></td>
+<td>动态加载模块</td>
+</tr>
+<tr>
+<td><code>getattr(module, name)</code></td>
+<td>运行时选择实现</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">retriever = RETRIEVERS[config.retriever]()</span><br></pre></td></tr></table></figure>
+<p>真正的结构是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">config</span><br><span class="line">   ↓</span><br><span class="line">Registry</span><br><span class="line">   ↓</span><br><span class="line">选择 Retriever 实现</span><br><span class="line">   ↓</span><br><span class="line">Retriever</span><br></pre></td></tr></table></figure>
+<p>所以不要到处追：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RETRIEVERS是什么字典？</span><br></pre></td></tr></table></figure>
+<p>先识别它：</p>
+<blockquote>
+<p>这是插件/注册器架构。</p>
+</blockquote>
+<hr>
+<h3 id="11-配置驱动架构"><a href="#11-配置驱动架构" class="headerlink" title="11. 配置驱动架构"></a>11. 配置驱动架构</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>架构含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config.xxx</code></td>
+<td>行为由配置控制</td>
+</tr>
+<tr>
+<td><code>yaml.safe_load()</code></td>
+<td>YAML → Config</td>
+</tr>
+<tr>
+<td><code>json.load()</code></td>
+<td>JSON → Config</td>
+</tr>
+<tr>
+<td><code>os.getenv()</code></td>
+<td>环境变量配置</td>
+</tr>
+<tr>
+<td><code>Settings()</code></td>
+<td>配置中心</td>
+</tr>
+<tr>
+<td><code>config.model_name</code></td>
+<td>模型可配置</td>
+</tr>
+<tr>
+<td><code>config.retriever</code></td>
+<td>Retriever 可替换</td>
+</tr>
+<tr>
+<td><code>config.enable_x</code></td>
+<td>Feature toggle</td>
+</tr>
+<tr>
+<td><code>if config.xxx:</code></td>
+<td>配置控制流程</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>看到：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> config.use_memory:</span><br><span class="line">    memory = Memory(...)</span><br></pre></td></tr></table></figure>
+<p>你应该理解：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Memory 是可选子系统</span><br></pre></td></tr></table></figure>
+<p>而不是单纯认为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里有个 if。</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="12-Decorator"><a href="#12-Decorator" class="headerlink" title="12. Decorator"></a>12. Decorator</h3><p>装饰器经常隐藏真正的架构行为。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>可能意味着</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@app.get()</code></td>
+<td>HTTP 路由注册</td>
+</tr>
+<tr>
+<td><code>@register()</code></td>
+<td>注册插件</td>
+</tr>
+<tr>
+<td><code>@property</code></td>
+<td>方法表现为属性</td>
+</tr>
+<tr>
+<td><code>@staticmethod</code></td>
+<td>不依赖对象状态</td>
+</tr>
+<tr>
+<td><code>@classmethod</code></td>
+<td>类级构造/操作</td>
+</tr>
+<tr>
+<td><code>@cache</code></td>
+<td>缓存</td>
+</tr>
+<tr>
+<td><code>@retry</code></td>
+<td>自动重试</td>
+</tr>
+<tr>
+<td><code>@trace</code></td>
+<td>tracing</td>
+</tr>
+<tr>
+<td><code>@transaction</code></td>
+<td>事务</td>
+</tr>
+<tr>
+<td><code>@tool</code></td>
+<td>注册 Agent Tool</td>
+</tr>
+<tr>
+<td><code>@dataclass</code></td>
+<td>数据对象</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@tool</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">query</span>):</span><br></pre></td></tr></table></figure>
+<p>不要只看到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定义 search 函数</span><br></pre></td></tr></table></figure>
+<p>而是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search</span><br><span class="line"> ↓ register</span><br><span class="line">Tool Registry</span><br><span class="line"> ↓</span><br><span class="line">Agent 可调用</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="13-Callback-Hook"><a href="#13-Callback-Hook" class="headerlink" title="13. Callback / Hook"></a>13. Callback / Hook</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>架构含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>callback(...)</code></td>
+<td>控制反转</td>
+</tr>
+<tr>
+<td><code>on_start()</code></td>
+<td>生命周期 Hook</td>
+</tr>
+<tr>
+<td><code>on_finish()</code></td>
+<td>生命周期 Hook</td>
+</tr>
+<tr>
+<td><code>before_xxx()</code></td>
+<td>前置 Hook</td>
+</tr>
+<tr>
+<td><code>after_xxx()</code></td>
+<td>后置 Hook</td>
+</tr>
+<tr>
+<td><code>listeners</code></td>
+<td>Observer</td>
+</tr>
+<tr>
+<td><code>hooks.append(...)</code></td>
+<td>可扩展行为</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> callback <span class="keyword">in</span> <span class="variable language_">self</span>.callbacks:</span><br><span class="line">    callback.on_step(step)</span><br></pre></td></tr></table></figure>
+<p>结构不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">循环调用函数</span><br></pre></td></tr></table></figure>
+<p>而是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Agent</span><br><span class="line"> ↓ events</span><br><span class="line">Callbacks</span><br><span class="line"> ├─ Logger</span><br><span class="line"> ├─ Tracer</span><br><span class="line"> └─ UI</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="14-Context-Manager"><a href="#14-Context-Manager" class="headerlink" title="14. Context Manager"></a>14. Context Manager</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>with open(...)</code></td>
+<td>文件资源生命周期</td>
+</tr>
+<tr>
+<td><code>with db.session()</code></td>
+<td>数据库 Session</td>
+</tr>
+<tr>
+<td><code>with torch.no_grad()</code></td>
+<td>暂时改变运行环境</td>
+</tr>
+<tr>
+<td><code>with trace(...)</code></td>
+<td>tracing 生命周期</td>
+</tr>
+<tr>
+<td><code>__enter__</code></td>
+<td>资源初始化</td>
+</tr>
+<tr>
+<td><code>__exit__</code></td>
+<td>清理资源</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>因此：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> database.transaction():</span><br></pre></td></tr></table></figure>
+<p>应该想到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这一段代码属于同一个事务边界</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="15-LLM-Agent-特有证据"><a href="#15-LLM-Agent-特有证据" class="headerlink" title="15. LLM / Agent 特有证据"></a>15. LLM / Agent 特有证据</h3><p>以后你读 Agent Memory，这部分要非常敏感。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>你应该识别成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>llm.invoke(prompt)</code></td>
+<td>Prompt → LLM → Response</td>
+</tr>
+<tr>
+<td><code>llm.generate()</code></td>
+<td>Model inference</td>
+</tr>
+<tr>
+<td><code>messages=[...]</code></td>
+<td>Conversation Context</td>
+</tr>
+<tr>
+<td><code>system_prompt</code></td>
+<td>Agent 行为规则</td>
+</tr>
+<tr>
+<td><code>tools=[...]</code></td>
+<td>Agent Action Space</td>
+</tr>
+<tr>
+<td><code>bind_tools()</code></td>
+<td>LLM 获得 Tool Schema</td>
+</tr>
+<tr>
+<td><code>tool_calls</code></td>
+<td>LLM 决定调用工具</td>
+</tr>
+<tr>
+<td><code>embedding_model.encode()</code></td>
+<td>Text → Vector</td>
+</tr>
+<tr>
+<td><code>vector_store.search()</code></td>
+<td>Vector Retrieval</td>
+</tr>
+<tr>
+<td><code>reranker(...)</code></td>
+<td>检索结果重新排序</td>
+</tr>
+<tr>
+<td><code>memory.add()</code></td>
+<td>Memory Write</td>
+</tr>
+<tr>
+<td><code>memory.search()</code></td>
+<td>Memory Read</td>
+</tr>
+<tr>
+<td><code>summarize()</code></td>
+<td>Memory Compression</td>
+</tr>
+<tr>
+<td><code>reflection()</code></td>
+<td>Memory/Experience abstraction</td>
+</tr>
+<tr>
+<td><code>planner.plan()</code></td>
+<td>Goal → Plan</td>
+</tr>
+<tr>
+<td><code>executor.execute()</code></td>
+<td>Plan → Action</td>
+</tr>
+<tr>
+<td><code>observation</code></td>
+<td>Environment → Agent</td>
+</tr>
+<tr>
+<td><code>scratchpad</code></td>
+<td>Working Memory</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td>Short-term Memory</td>
+</tr>
+<tr>
+<td><code>profile</code></td>
+<td>User/Agent long-term state</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>一个典型 Memory Agent：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">memories = memory.retrieve(query)</span><br><span class="line"></span><br><span class="line">prompt = prompt_builder.build(</span><br><span class="line">    query=query,</span><br><span class="line">    memories=memories</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">response = llm.invoke(prompt)</span><br><span class="line"></span><br><span class="line">memory.store(response)</span><br></pre></td></tr></table></figure>
+<p>你应该一次读出：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">                   ┌──────── Memory ────────┐</span><br><span class="line">                   │                        │</span><br><span class="line">query → Retriever ─┘                        │</span><br><span class="line">  │                                        │</span><br><span class="line">  └─────────────┐                          │</span><br><span class="line">                ↓                          │</span><br><span class="line">          Prompt Builder                   │</span><br><span class="line">                ↓                          │</span><br><span class="line">              Prompt                       │</span><br><span class="line">                ↓                          │</span><br><span class="line">               LLM                         │</span><br><span class="line">                ↓                          │</span><br><span class="line">             Response ─────────────────────┘</span><br></pre></td></tr></table></figure>
+<p>然后得到架构结论：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Memory 同时参与：</span><br><span class="line"></span><br><span class="line">Read Path:</span><br><span class="line">Memory → Prompt → LLM</span><br><span class="line"></span><br><span class="line">Write Path:</span><br><span class="line">LLM Response → Memory</span><br></pre></td></tr></table></figure>
+<p>这比知道每一行 Python 在干什么重要得多。</p>
+<hr>
+<h3 id="16-Web-API-项目的典型证据"><a href="#16-Web-API-项目的典型证据" class="headerlink" title="16. Web/API 项目的典型证据"></a>16. Web/API 项目的典型证据</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>架构角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>router</code></td>
+<td>路由层</td>
+</tr>
+<tr>
+<td><code>controller</code></td>
+<td>Controller</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td>业务逻辑</td>
+</tr>
+<tr>
+<td><code>repository</code></td>
+<td>数据访问</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>数据模型</td>
+</tr>
+<tr>
+<td><code>schema</code></td>
+<td>API 数据结构</td>
+</tr>
+<tr>
+<td><code>request</code></td>
+<td>输入</td>
+</tr>
+<tr>
+<td><code>response</code></td>
+<td>输出</td>
+</tr>
+<tr>
+<td><code>middleware</code></td>
+<td>横切逻辑</td>
+</tr>
+<tr>
+<td><code>auth</code></td>
+<td>身份验证</td>
+</tr>
+<tr>
+<td><code>session</code></td>
+<td>会话状态</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>经常看到：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">router</span><br><span class="line"> ↓</span><br><span class="line">controller</span><br><span class="line"> ↓</span><br><span class="line">service</span><br><span class="line"> ↓</span><br><span class="line">repository</span><br><span class="line"> ↓</span><br><span class="line">database</span><br></pre></td></tr></table></figure>
+<p>如果你已经能把源码压缩成这一条链，就已经开始脱离“逐行阅读”。</p>
+<hr>
+<h3 id="17-数据类型本身也是架构证据"><a href="#17-数据类型本身也是架构证据" class="headerlink" title="17. 数据类型本身也是架构证据"></a>17. 数据类型本身也是架构证据</h3><p>不要忽视：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Memory</span>:</span><br><span class="line">    content: <span class="built_in">str</span></span><br><span class="line">    embedding: <span class="built_in">list</span>[<span class="built_in">float</span>]</span><br><span class="line">    timestamp: datetime</span><br></pre></td></tr></table></figure>
+<p>这其实是在告诉你：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">系统认为 Memory 的核心数据模型是：</span><br><span class="line"></span><br><span class="line">Memory</span><br><span class="line">├─ content</span><br><span class="line">├─ embedding</span><br><span class="line">└─ timestamp</span><br></pre></td></tr></table></figure>
+<p>所以重点观察：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dataclass</code></td>
+<td>Domain/Data Model</td>
+</tr>
+<tr>
+<td><code>BaseModel</code></td>
+<td>Schema</td>
+</tr>
+<tr>
+<td><code>TypedDict</code></td>
+<td>State Schema</td>
+</tr>
+<tr>
+<td><code>Enum</code></td>
+<td>有限状态集合</td>
+</tr>
+<tr>
+<td><code>Optional[X]</code></td>
+<td>X 可以不存在</td>
+</tr>
+<tr>
+<td><code>list[X]</code></td>
+<td>一对多</td>
+</tr>
+<tr>
+<td><code>dict[str, X]</code></td>
+<td>映射关系</td>
+</tr>
+<tr>
+<td><code>Union[A,B]</code></td>
+<td>多态输入/输出</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>尤其 Agent 项目：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AgentState</span>(<span class="title class_ inherited__">TypedDict</span>):</span><br><span class="line">    messages: <span class="built_in">list</span></span><br><span class="line">    memories: <span class="built_in">list</span></span><br><span class="line">    plan: <span class="built_in">list</span></span><br><span class="line">    current_step: <span class="built_in">int</span></span><br></pre></td></tr></table></figure>
+<p>几乎等价于项目作者直接把 Agent 内部状态结构画给你了。</p>
+<hr>
+<h3 id="18-错误处理也是架构证据"><a href="#18-错误处理也是架构证据" class="headerlink" title="18. 错误处理也是架构证据"></a>18. 错误处理也是架构证据</h3><p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    result = api.call()</span><br><span class="line"><span class="keyword">except</span> TimeoutError:</span><br><span class="line">    result = fallback()</span><br></pre></td></tr></table></figure>
+<p>不要停在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">捕获 TimeoutError</span><br></pre></td></tr></table></figure>
+<p>而应该读成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Primary API</span><br><span class="line">   ↓ failure</span><br><span class="line">Fallback</span><br></pre></td></tr></table></figure>
+<p>说明系统存在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">容错策略</span><br></pre></td></tr></table></figure>
+<p>类似的还有：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">retry(...)</span><br><span class="line">fallback(...)</span><br><span class="line">default(...)</span><br></pre></td></tr></table></figure>
+<p>分别代表：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">重试</span><br><span class="line">降级</span><br><span class="line">默认行为</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="19-日志、监控和-tracing"><a href="#19-日志、监控和-tracing" class="headerlink" title="19. 日志、监控和 tracing"></a>19. 日志、监控和 tracing</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>架构含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>logger.info()</code></td>
+<td>可观察性</td>
+</tr>
+<tr>
+<td><code>logger.error()</code></td>
+<td>异常观测</td>
+</tr>
+<tr>
+<td><code>metrics.increment()</code></td>
+<td>Metrics</td>
+</tr>
+<tr>
+<td><code>trace.start()</code></td>
+<td>Trace</td>
+</tr>
+<tr>
+<td><code>span(...)</code></td>
+<td>调用链追踪</td>
+</tr>
+<tr>
+<td><code>timer()</code></td>
+<td>性能监控</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> trace(<span class="string">&quot;retrieval&quot;</span>):</span><br><span class="line">    memories = retriever.search(query)</span><br></pre></td></tr></table></figure>
+<p>说明开发者明确把：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">retrieval</span><br></pre></td></tr></table></figure>
+<p>视为一个独立架构阶段。</p>
+<p>这往往比函数名更有信息量。</p>
+<hr>
+<h3 id="20-Tests-反而经常是理解架构的捷径"><a href="#20-Tests-反而经常是理解架构的捷径" class="headerlink" title="20. Tests 反而经常是理解架构的捷径"></a>20. Tests 反而经常是理解架构的捷径</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Test 代码</th>
+<th>可以知道</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Agent(...)</code></td>
+<td>Agent 如何初始化</td>
+</tr>
+<tr>
+<td><code>agent.run(x)</code></td>
+<td>正常入口</td>
+</tr>
+<tr>
+<td><code>assert result == ...</code></td>
+<td>预期输出</td>
+</tr>
+<tr>
+<td><code>mock.xxx</code></td>
+<td>外部依赖</td>
+</tr>
+<tr>
+<td><code>fixture</code></td>
+<td>系统运行前提</td>
+</tr>
+<tr>
+<td><code>patch()</code></td>
+<td>哪些组件可替换</td>
+</tr>
+<tr>
+<td>integration test</td>
+<td>模块之间如何组合</td>
+</tr>
+<tr>
+<td>end-to-end test</td>
+<td>整个系统的数据流</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">agent = Agent(memory=mock_memory, llm=mock_llm)</span><br><span class="line">result = agent.run(<span class="string">&quot;hello&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>基本直接告诉你：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">        Memory</span><br><span class="line">          ↓</span><br><span class="line">Input → Agent → Output</span><br><span class="line">          ↑</span><br><span class="line">         LLM</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="最重要的一张“心智翻译表”"><a href="#最重要的一张“心智翻译表”" class="headerlink" title="最重要的一张“心智翻译表”"></a>最重要的一张“心智翻译表”</h2><p>以后读源码时，我建议你脑内持续做这样的转换：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>源码</th>
+<th>不要停留在</th>
+<th>应该进一步读成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>import Retriever</code></td>
+<td>导入类</td>
+<td>模块依赖 Retriever</td>
+</tr>
+<tr>
+<td><code>Retriever()</code></td>
+<td>实例化</td>
+<td>创建 Retriever 子系统</td>
+</tr>
+<tr>
+<td><code>self.r = retriever</code></td>
+<td>赋值</td>
+<td>Agent 持有 Retriever</td>
+</tr>
+<tr>
+<td><code>r.search(q)</code></td>
+<td>调函数</td>
+<td>Agent → Retriever</td>
+</tr>
+<tr>
+<td><code>x = r.search(q)</code></td>
+<td>返回值</td>
+<td>q → Retriever → x</td>
+</tr>
+<tr>
+<td><code>memory.save(x)</code></td>
+<td>调函数</td>
+<td>x → Memory Store</td>
+</tr>
+<tr>
+<td><code>return x</code></td>
+<td>返回</td>
+<td>x → 上层模块</td>
+</tr>
+<tr>
+<td><code>if x:</code></td>
+<td>判断</td>
+<td>控制流分叉</td>
+</tr>
+<tr>
+<td><code>for step...</code></td>
+<td>循环</td>
+<td>迭代流程</td>
+</tr>
+<tr>
+<td><code>while not done</code></td>
+<td>循环</td>
+<td>Agent Loop</td>
+</tr>
+<tr>
+<td><code>await x()</code></td>
+<td>异步调用</td>
+<td>等待外部/并发任务</td>
+</tr>
+<tr>
+<td><code>queue.put(x)</code></td>
+<td>入队</td>
+<td>Producer → Queue</td>
+</tr>
+<tr>
+<td><code>api.xxx()</code></td>
+<td>API 调用</td>
+<td>系统 → 外部服务</td>
+</tr>
+<tr>
+<td><code>db.xxx()</code></td>
+<td>数据库</td>
+<td>Application ↔ Persistence</td>
+</tr>
+<tr>
+<td><code>config.xxx</code></td>
+<td>读配置</td>
+<td>行为由配置驱动</td>
+</tr>
+<tr>
+<td><code>registry[name]</code></td>
+<td>查字典</td>
+<td>动态插件选择</td>
+</tr>
+<tr>
+<td><code>@register</code></td>
+<td>装饰器</td>
+<td>模块注册到框架</td>
+</tr>
+<tr>
+<td><code>callback()</code></td>
+<td>调函数</td>
+<td>控制反转</td>
+</tr>
+<tr>
+<td><code>state[x]=y</code></td>
+<td>字典赋值</td>
+<td>系统状态变化</td>
+</tr>
+<tr>
+<td><code>tool_calls</code></td>
+<td>数据字段</td>
+<td>LLM → Tool Router</td>
+</tr>
+<tr>
+<td><code>embedding()</code></td>
+<td>函数</td>
+<td>Text → Vector</td>
+</tr>
+<tr>
+<td><code>similarity_search()</code></td>
+<td>搜索</td>
+<td>Query → Vector DB → Memory</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/SOP/">SOP</a><a class="link-muted mr-2" rel="tag" href="/tags/code/">code</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/%E5%86%8D%E8%AF%BBAttention/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">再读Attention</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/SOP%E4%B9%8B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"><span class="level-item">SOP之论文阅读</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div></div></main><aside class="utility-panel" aria-label="博客工具"><section class="calendar-widget" aria-label="文章日历"><div class="calendar-head"><h2 class="calendar-title"><span data-calendar-month>Sep</span><strong data-calendar-year>2026</strong></h2><div class="calendar-actions"><button type="button" data-calendar-prev aria-label="上个月">‹</button><button class="calendar-today" type="button" data-calendar-today>TODAY</button><button type="button" data-calendar-next aria-label="下个月">›</button></div></div><div class="calendar-weekdays" aria-hidden="true"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div><div class="calendar-grid" data-calendar-grid></div><div class="calendar-selection" data-calendar-selection aria-live="polite"></div></section><section class="fortune-widget" aria-label="纸罐抽签"><button class="fortune-jar" type="button" data-fortune-jar aria-label="从纸罐中抽取一句话"><svg viewBox="0 0 96 96" role="img" aria-hidden="true"><path d="M31 25h34M35 18h26M32 31h32l-3 43H35l-3-43Z"></path><path d="M39 43c6-4 12 4 18 0M39 53c6 4 12-4 18 0M42 63h12"></path></svg><span>抽一张纸条</span></button></section><script id="calendar-post-data" type="application/json">{"2026-09-22":[{"title":"","url":"/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87%E5%92%8C%E6%BA%90%E4%BB%A3%E7%A0%81/"}],"2026-09-21":[{"title":"再读Attention","url":"/%E5%86%8D%E8%AF%BBAttention/"}],"2026-09-20":[{"title":"SOP之CodeReading&Review","url":"/SOP%E4%B9%8BCodeReading&Review/"},{"title":"SOP之论文阅读","url":"/SOP%E4%B9%8B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"},{"title":"Survey阅读之 From Storage to Experience-A Survey on the Evolution of LLM Agent Memory Mechanisms","url":"/Survey%E9%98%85%E8%AF%BB%E4%B9%8BFrom%20Storage%20to%20Experience-A%20Survey%20on%20the%20Evolution%20of%20LLM%20Agent%20Memory%20Mechanisms/"},{"title":"读书笔记之--《人间游戏-人际关系心理学》","url":"/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B--%E3%80%8A%E4%BA%BA%E9%97%B4%E6%B8%B8%E6%88%8F-%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B/"},{"title":"读书笔记之--《蛤蟆先生去看心理医生》","url":"/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B--%E3%80%8A%E8%9B%A4%E8%9F%86%E5%85%88%E7%94%9F%E5%8E%BB%E7%9C%8B%E5%BF%83%E7%90%86%E5%8C%BB%E7%94%9F%E3%80%8B/"}],"2026-09-19":[{"title":"对未来的思考，模糊的计划和我的幻觉","url":"/%E5%AF%B9%E6%9C%AA%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%8C%E6%A8%A1%E7%B3%8A%E7%9A%84%E8%AE%A1%E5%88%92/"},{"title":"记一个小小的创作灵感","url":"/%E8%AE%B0%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%B0%8F%E7%9A%84%E5%88%9B%E4%BD%9C%E7%81%B5%E6%84%9F/"}],"2026-09-18":[{"title":"读书笔记之--《时间机器》","url":"/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B--%E3%80%8A%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8%E3%80%8B/"}],"2026-09-17":[{"title":"为什么我决定每天写博客，以及对于学习的思考","url":"/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%86%B3%E5%AE%9A%E6%AF%8F%E5%A4%A9%E5%86%99%E5%8D%9A%E5%AE%A2%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%AF%B9%E4%BA%8E%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%80%9D%E8%80%83/"}],"2026-04-13":[{"title":"大模型的训练和推理吃多少显存","url":"/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83%E5%92%8C%E6%8E%A8%E7%90%86%E5%90%83%E5%A4%9A%E5%B0%91%E6%98%BE%E5%AD%98-math%20transformer/"}]}</script><div class="fortune-message" data-fortune-message role="status" aria-live="polite"></div></aside><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Ksupotco的纸罐子</a><p class="is-size-7"><span>&copy; 2026 ksupotco</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer></div><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
@@ -46,4 +1388,4 @@
       chtml: {
         matchFontHeight: false
       }
-    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><script data-pjax src="/js/main.js" defer></script><script src="/js/utility-panel.js?v=20260921-1" defer></script><!--!--></body></html>
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><script data-pjax src="/js/main.js" defer></script><script src="/js/article-toc.js" defer></script><script src="/js/utility-panel.js?v=20260921-1" defer></script><!--!--></body></html>
