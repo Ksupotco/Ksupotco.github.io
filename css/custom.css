@@ -265,9 +265,11 @@ body.diary-layout {
 .article .title.is-3,
 .stream-surface h1.title {
     margin: 0 0 12px;
-    font-family: "Noto Serif", "PT Serif", "Noto Serif SC", source-han-serif-sc,
-        "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif TC",
-        "Source Han Serif TW", "Source Han Serif", "Songti SC", SimSun, serif;
+    color: rgb(52, 58, 64);
+    font-family: source-han-serif-sc, "Source Han Serif SC", "Source Han Serif CN",
+        "Noto Serif SC", "Noto Serif", "PT Serif",
+        "Source Han Serif TC", "Source Han Serif TW", "Source Han Serif",
+        "Songti SC", SimSun, serif;
     font-size: 30px;
     font-weight: 700;
     line-height: 2em;
@@ -323,6 +325,9 @@ body.diary-layout {
 
 .article .content h1 {
     margin: 1em 0 16px;
+    color: rgb(52, 58, 64);
+    font-family: source-han-serif-sc, "Source Han Serif SC", "Source Han Serif CN",
+        "Noto Serif SC", "Noto Serif", "PT Serif", "Songti SC", SimSun, serif;
     font-size: 30px;
     font-weight: 700;
     line-height: 2em;
@@ -468,6 +473,274 @@ body.diary-layout {
 /* Article table of contents, following the Awesome-VLA reading layout. */
 .article-toc {
     display: none;
+}
+
+/* Right-side utilities: post calendar and the paper-jar quote drawer. */
+.utility-panel {
+    position: fixed;
+    inset: 0 0 0 auto;
+    z-index: 17;
+    width: var(--diary-side);
+    height: 100vh;
+    padding: 38px 24px 42px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--diary-back);
+    color: #202b38;
+}
+
+.calendar-widget,
+.fortune-widget {
+    width: min(100%, 330px);
+    margin: 0 auto;
+}
+
+.calendar-head {
+    display: flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.calendar-title {
+    display: flex;
+    margin: 0;
+    align-items: baseline;
+    gap: 9px;
+    color: #111923;
+    font-family: Montserrat, "Noto Sans SC", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.calendar-title strong {
+    color: #48a5ef;
+    font-weight: 400;
+}
+
+.calendar-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.calendar-actions button,
+.calendar-day,
+.fortune-jar {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+}
+
+.calendar-actions button {
+    display: inline-flex;
+    min-width: 28px;
+    height: 34px;
+    padding: 0 5px;
+    align-items: center;
+    justify-content: center;
+    color: #101820;
+    font-family: Montserrat, sans-serif;
+    font-size: 29px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.calendar-actions .calendar-today {
+    min-width: 48px;
+    color: #17202b;
+    font-family: "Source Code Pro", Consolas, monospace;
+    font-size: 10px;
+    letter-spacing: .12em;
+}
+
+.calendar-actions button:hover,
+.calendar-actions button:focus-visible {
+    color: #1b6ec2;
+}
+
+.calendar-weekdays,
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.calendar-weekdays {
+    margin-top: 19px;
+    color: #111923;
+    font-family: "Source Code Pro", Consolas, monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-align: center;
+}
+
+.calendar-grid {
+    margin-top: 8px;
+    row-gap: 3px;
+}
+
+.calendar-day {
+    position: relative;
+    display: flex;
+    height: 42px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: #17202b;
+    font-family: "Noto Serif", "PT Serif", "Noto Serif SC", serif;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.calendar-day:hover,
+.calendar-day:focus-visible,
+.calendar-day.is-selected {
+    background: rgba(27, 110, 194, .07);
+    color: #1b6ec2;
+}
+
+.calendar-day.is-outside {
+    color: #c4c9cf;
+}
+
+.calendar-day.is-today {
+    color: #228ae6;
+    font-weight: 700;
+}
+
+.calendar-day.has-posts {
+    color: #1b6ec2;
+}
+
+.calendar-dots {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    overflow: hidden;
+    color: #1b6ec2;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.calendar-selection {
+    min-height: 65px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(128, 128, 128, .14);
+    font-family: "Noto Serif", "Noto Serif SC", "Songti SC", serif;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.calendar-selection:empty {
+    min-height: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.calendar-selection-date {
+    margin-bottom: 6px;
+    color: #7b8795;
+    font-size: 12px;
+}
+
+.calendar-selection ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.calendar-selection li + li {
+    margin-top: 5px;
+}
+
+.calendar-selection a {
+    color: #1b6ec2;
+    text-decoration: none;
+}
+
+.calendar-selection a:hover {
+    color: #228ae6;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.calendar-empty {
+    margin: 0;
+    color: #1b6ec2;
+}
+
+.fortune-widget {
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(128, 128, 128, .14);
+    text-align: center;
+}
+
+.fortune-jar {
+    display: inline-flex;
+    padding: 2px 14px 8px;
+    align-items: center;
+    flex-direction: column;
+    color: #1b6ec2;
+}
+
+.fortune-jar svg {
+    display: block;
+    width: 74px;
+    height: 74px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.fortune-jar span {
+    margin-top: 4px;
+    font-family: "Noto Serif", "Noto Serif SC", "Songti SC", serif;
+    font-size: 13px;
+}
+
+.fortune-jar:hover,
+.fortune-jar:focus-visible {
+    color: #228ae6;
+}
+
+.fortune-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 2000;
+    display: none;
+    max-width: min(80vw, 720px);
+    padding: 12px 18px;
+    transform: translate(-50%, -50%);
+    color: #1b6ec2;
+    background: transparent;
+    font-family: "京华老宋体", "京華老宋体", "JingHua LaoSong", "STSong",
+        "Songti SC", "Noto Serif SC", serif;
+    font-size: clamp(19px, 2.1vw, 30px);
+    font-weight: 400;
+    letter-spacing: .1em;
+    line-height: 1.5;
+    text-align: center;
+    pointer-events: none;
+}
+
+.fortune-message.is-visible {
+    display: block;
 }
 
 .article-content-column {
@@ -725,6 +998,22 @@ body.diary-layout {
     .stream-container {
         min-height: auto;
         padding: 0;
+    }
+
+    .utility-panel {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0 15px 15px;
+        padding: 28px 20px;
+        overflow: visible;
+        background: #fff;
+        box-shadow: 0 0 8px rgba(0, 0, 0, .08);
+    }
+
+    .calendar-widget,
+    .fortune-widget {
+        width: min(100%, 360px);
     }
 
     .stream-surface {
