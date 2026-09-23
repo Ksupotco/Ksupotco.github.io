@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Paper阅读与复现之《Adversarial Attacks against Closed-Source MLLMs via Feature Optimal Alignment》 - ksupotco的纸罐子</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="ksupotco的纸罐子"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="ksupotco的纸罐子"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="引言在正式阅读这篇论文前我们先用一个具象的例子建立直觉  设想原图是一只猫，目标图是一辆公交车。我们给猫图添加受约束的小扰动，希望模型描述它时，内容偏向公交车。  分析要解决这个问题，我们知道人眼分辨图片主要靠像素，但是MLLM又是怎么处理图片信息。简单画图就是：  x \overset{E_v}{\longrightarrow} Z_v \overset{P}{\longrightarrow}"><meta property="og:type" content="article"><meta property="og:title" content="Paper阅读与复现之《Adversarial Attacks against Closed-Source MLLMs via Feature Optimal Alignment》"><meta property="og:url" content="https://ksupotco.github.io/Paper%E9%98%85%E8%AF%BB%E4%B8%8E%E5%A4%8D%E7%8E%B0%E4%B9%8B%E3%80%8AAdversarial%20Attacks%20against%20Closed-Source%20MLLMs%20via%20Feature%20Optimal%20Alignment%E3%80%8B/"><meta property="og:site_name" content="ksupotco的纸罐子"><meta property="og:description" content="引言在正式阅读这篇论文前我们先用一个具象的例子建立直觉  设想原图是一只猫，目标图是一辆公交车。我们给猫图添加受约束的小扰动，希望模型描述它时，内容偏向公交车。  分析要解决这个问题，我们知道人眼分辨图片主要靠像素，但是MLLM又是怎么处理图片信息。简单画图就是：  x \overset{E_v}{\longrightarrow} Z_v \overset{P}{\longrightarrow}"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://ksupotco.github.io/img/og_image.png"><meta property="article:published_time" content="2026-09-21T16:00:00.000Z"><meta property="article:modified_time" content="2026-09-23T05:57:47.150Z"><meta property="article:author" content="ksupotco"><meta property="article:tag" content="paper阅读"><meta property="article:tag" content="FOA-Attack"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://ksupotco.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ksupotco.github.io/Paper%E9%98%85%E8%AF%BB%E4%B8%8E%E5%A4%8D%E7%8E%B0%E4%B9%8B%E3%80%8AAdversarial%20Attacks%20against%20Closed-Source%20MLLMs%20via%20Feature%20Optimal%20Alignment%E3%80%8B/"},"headline":"Paper阅读与复现之《Adversarial Attacks against Closed-Source MLLMs via Feature Optimal Alignment》","image":["https://ksupotco.github.io/img/og_image.png"],"datePublished":"2026-09-21T16:00:00.000Z","dateModified":"2026-09-23T05:57:47.150Z","author":{"@type":"Person","name":"ksupotco"},"publisher":{"@type":"Organization","name":"ksupotco的纸罐子","logo":{"@type":"ImageObject","url":{"text":"Ksupotco的纸罐子"}}},"description":"引言在正式阅读这篇论文前我们先用一个具象的例子建立直觉  设想原图是一只猫，目标图是一辆公交车。我们给猫图添加受约束的小扰动，希望模型描述它时，内容偏向公交车。  分析要解决这个问题，我们知道人眼分辨图片主要靠像素，但是MLLM又是怎么处理图片信息。简单画图就是：  x \\overset{E_v}{\\longrightarrow} Z_v \\overset{P}{\\longrightarrow}"}</script><link rel="canonical" href="https://ksupotco.github.io/Paper%E9%98%85%E8%AF%BB%E4%B8%8E%E5%A4%8D%E7%8E%B0%E4%B9%8B%E3%80%8AAdversarial%20Attacks%20against%20Closed-Source%20MLLMs%20via%20Feature%20Optimal%20Alignment%E3%80%8B/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Lora:wght@400;500&amp;family=Montserrat:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;600&amp;family=Noto+Serif:wght@400;700&amp;family=Noto+Serif+SC:wght@400;600;700&amp;family=PT+Serif:wght@400;700&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><link data-pjax rel="stylesheet" href="/css/custom.css?v=20260922-2"><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="diary-layout is-article-page has-article-toc"><div class="diary-shell" id="app"><aside class="side-container"><a class="nav-head" href="/"><span class="nav-title">ksupotco的纸罐子</span><span class="nav-subtitle">If it needs to get done,it gets done.</span></a><nav class="nav-link-list" aria-label="Primary navigation"><a class="nav-link-item" href="/">Blog</a><a class="nav-link-item" href="/categories/">Categories</a><a class="nav-link-item" href="/tags/">Tags</a><a class="nav-link-item" href="/archives/">Archive</a><a class="nav-link-item" href="/about/">About</a></nav><div class="nav-footer"><p>Theme inspired by <a href="https://byvoid.com/en/" target="_blank" rel="noopener">Diary</a>.</p><p>Generated by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></p><p>© 2026 ksupotco</p></div></aside><header class="mobile-header"><a class="mobile-brand" href="/"><span>ksupotco的纸罐子</span><small>If it needs to get done,it gets done.</small></a><div class="mobile-menu"><input class="mobile-menu-toggle" type="checkbox" id="mobile-menu-toggle"><label class="mobile-menu-label" for="mobile-menu-toggle" aria-label="打开导航菜单"><span></span><span></span><span></span></label><nav class="mobile-nav-links" aria-label="Primary navigation"><a class="nav-link-item" href="/">Blog</a><a class="nav-link-item" href="/categories/">Categories</a><a class="nav-link-item" href="/tags/">Tags</a><a class="nav-link-item" href="/archives/">Archive</a><a class="nav-link-item" href="/about/">About</a></nav></div></header><main class="stream-container" id="content"><div class="stream-surface"><aside class="article-toc" aria-label="文章目录"><div class="article-toc-title">目录</div><div class="article-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%B3%E7%90%86"><span class="toc-text">梳理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83"><span class="toc-text">思考</span></a></li></ol></div></aside><div class="article-content-column"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-09-21T16:00:00.000Z" title="2026/9/22 00:00:00">2026-09-22</time>发表</span><span class="level-item"><time dateTime="2026-09-23T05:57:47.150Z" title="2026/9/23 13:57:47">2026-09-23</time>更新</span></div></div><h1 class="title is-3 is-size-4-mobile">Paper阅读与复现之《Adversarial Attacks against Closed-Source MLLMs via Feature Optimal Alignment》</h1><div class="content"><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在正式阅读这篇论文前我们先用一个具象的例子建立直觉</p>
+<blockquote>
+<p>设想原图是一只猫，目标图是一辆公交车。我们给猫图添加受约束的小扰动，希望模型描述它时，内容偏向公交车。</p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>要解决这个问题，我们知道人眼分辨图片主要靠像素，但是MLLM又是怎么处理图片信息。简单画图就是：</p>
+<script type="math/tex; mode=display">
+x
+\overset{E_v}{\longrightarrow}
+Z_v
+\overset{P}{\longrightarrow}
+H_v
+\overset{\mathrm{LLM}}{\longrightarrow}
+y_1,y_2,\dots,y_n</script><p>我们发现有空子可以钻。如果我们控制像素差在一个很小区域内（肉眼很难分辨），然后让feature靠近目标图片feature，那么就可以达到我们的目的了。<br>正常过程：</p>
+<script type="math/tex; mode=display">
+x_{\text{nat}}
+\rightarrow
+E_v(x_{\text{nat}})
+\rightarrow
+H_v
+\rightarrow
+\mathrm{LLM}
+\rightarrow
+\text{"a cat"}</script><p>攻击者制造：</p>
+<script type="math/tex; mode=display">
+x_{\text{adv}}
+=
+x_{\text{nat}}+\delta</script><p>要求：</p>
+<script type="math/tex; mode=display">
+\|\delta\|_\infty
+\le
+\epsilon</script><p>但希望：</p>
+<script type="math/tex; mode=display">
+E_v(x_{\text{adv}})</script><p>发生较大程度的<strong>语义方向变化</strong>。</p>
+<p>因此对问题建模，它实际上就是一个有约束的优化问题，最基本的优化目标可以写成：</p>
+<script type="math/tex; mode=display">
+\boxed{
+\min_{x_{\text{adv}}}
+\sum_{i=1}^{t}
+L
+\left(
+f_{\theta_i}(x_{\text{adv}}),
+f_{\theta_i}(x_{\text{tar}})
+\right)
+}</script><p>subject to：</p>
+<script type="math/tex; mode=display">
+\boxed{
+\|x_{\text{adv}}-x_{\text{nat}}\|_\infty
+\le
+\epsilon
+}</script><h2 id="梳理"><a href="#梳理" class="headerlink" title="梳理"></a>梳理</h2><p>写成一条链就是</p>
+<script type="math/tex; mode=display">
+x_{\mathrm{adv}}
+=
+x_{\mathrm{nat}}+\delta,
+\qquad
+\|\delta\|_\infty\leq\epsilon</script><p>对第 i个 surrogate encoder 提取global feature</p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+X_i
+=
+f_{\theta_i}^{\mathrm{global}}
+(x_{\mathrm{adv}}),
+\qquad
+Y_i
+=
+f_{\theta_i}^{\mathrm{global}}
+(x_{\mathrm{tar}})</script><p>做Global alignment，下式为global loss </p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+L_{\mathrm{coa}}^{(i)}
+=
+1-\cos(X_i,Y_i)</script><p>提取local features(创新点，我认为是本篇重点)</p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+X_{\mathrm{loc}}^{(i)},
+\quad
+Y_{\mathrm{loc}}^{(i)}</script><p>用K-means，先压缩 local features</p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+X_{\mathrm{clu}}^{(i)}
+=
+\operatorname{KMeans}
+(X_{\mathrm{loc}}^{(i)},n)</script><script type="math/tex; mode=display">
+Y_{\mathrm{clu}}^{(i)}
+=
+\operatorname{KMeans}
+(Y_{\mathrm{loc}}^{(i)},n)</script><p>构造 local feature 的 Cost Matrix，就是计算两个local features有多不相似，得到一个矩阵，</p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+C_{ab}^{(i)}
+=
+1-
+\cos
+\left(
+X_{\mathrm{clu},a}^{(i)},
+Y_{\mathrm{clu},b}^{(i)}
+\right)</script><p>然后，因为编号是无意义的，所以我们不能假定相同编号一定对应。因此，我们用OT决定谁应该和谁匹配，现在我们有了一个transport plan。论文随后使用 <strong>Sinkhorn algorithm</strong> 求这个 transport plan。</p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+\pi^{*(i)}
+=
+\arg\min_\pi
+\sum_{a,b}
+C_{ab}^{(i)}
+\pi_{ab}^{(i)}</script><p>Local Alignment Loss，根据 OT 找到的合理匹配关系，对 local feature 的 mismatch 做加权求和。</p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+L_{\mathrm{fin}}^{(i)}
+=
+\sum_{a,b}
+C_{ab}^{(i)}
+\pi_{ab}^{(i)}</script><script type="math/tex; mode=display">
+\Downarrow</script><p>一个 encoder 的 FOA loss</p>
+<script type="math/tex; mode=display">
+L_{\theta_i}
+=
+L_{\mathrm{coa}}^{(i)}
++
+\eta
+L_{\mathrm{fin}}^{(i)}</script><p>为了减少过拟合做ensemble，得到多模型总 Loss</p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+L
+=
+\sum_{i=1}^{t}
+W_i
+L_{\theta_i}</script><p>梯度下降，这个地方我有一点需要搞清楚为什么不是常规的∇θ​L。</p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+g
+=
+\nabla_{x_{\mathrm{adv}}}L</script><p>更新 adversarial image</p>
+<script type="math/tex; mode=display">
+\Downarrow</script><script type="math/tex; mode=display">
+x_{\mathrm{adv}}^{k+1}
+=
+\Pi_{\mathcal{B}_\epsilon(x_{\mathrm{nat}})}
+\left(
+x_{\mathrm{adv}}^k
+-
+\alpha
+\operatorname{sign}(g)
+\right)</script><h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>不知道说的对不对。。。<br>感觉文章里面还是用了不少trick以及工程上的一些处理的，跟我之前做过的kaggle比赛有点像。insight主要是Local feature alignment，以及一些针对性的解决方法比如Optimal Transport for local alignment和Dynamic ensemble weighting。但是想要好结果用了不少已有算法or技巧。我看到有些trick是相关论文有提出的比如m-attack，我要不要也去读一读？我在想这种能力需要怎么培养？<br>这篇论文的思路非常清晰，逻辑也很严密，总体读下来蛮顺的。作者首先指出limitation，然后提出猜想：只关注global features是不够的！接着拿出他们的新解法global+local，然后一步步拆解问题，设计方法和损失函数，然后去做实验。<br>我重点看了一下实验设计。首先要证明自己工作比别人工作（尤其是要证明自己soda)更加work，那么作者拿FOA与已有的五个方法比较，分成两组。第一组是 6 个开源 MLLM，第二组是 5 个闭源商业 MLLM，控制同样的 adversarial images， victim models不同，看是否都能 transfer，验证FOA 在 unseen MLLMs 上比现有 transferable attacks 更有效<br>另外再测 3 个 reasoning-oriented closed-source model。这个我不太清楚是怎么想到要做这个的。<br>然后做Ablation，验证究竟是哪个module会work，<br>A：Global  alignment<br>B：Local   alignment<br>C：Dynamic weighting<br>以及 FOA + KMeans vs FOA without KMeans<br>接着还有</p>
+<ul>
+<li>cluster数量实验（有一点像调参）</li>
+<li>alternative explanation control<br>  比较 M-Attack + 更多 surrogate和 FOA + 更多 surrogate，证明我们improvement不是归因于多加模型</li>
+<li>confounder analysis 证明source-target similarity 可能略微帮助 attack，但不是主要原因</li>
+<li>Keyword Matching Rate 换评价器证明conclusion不变</li>
+<li>Defense Experiment 证明鲁棒性<br>可以看出实验设计也有值得学习的地方。</li>
+</ul>
+</div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/paper%E9%98%85%E8%AF%BB/">paper阅读</a><a class="link-muted mr-2" rel="tag" href="/tags/FOA-Attack/">FOA-Attack</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Paper%05%EF%BF%BDK%0AA%20Frustratingly%20Simple%20Yet%20Highly%20Effective%20Attack%20Baseline%20Over%2090%25%20Success%20Rate%20Against%20the%20Strong%20%20Black-box%20Models%20%0B/"><i class="level-item fas fa-chevron-left"></i><span class="level-item"> </span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/%E5%86%8D%E8%AF%BBAttention/"><span class="level-item">再读Attention</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div></div></main><aside class="utility-panel" aria-label="博客工具"><section class="calendar-widget" aria-label="文章日历"><div class="calendar-head"><h2 class="calendar-title"><span data-calendar-month>Sep</span><strong data-calendar-year>2026</strong></h2><div class="calendar-actions"><button type="button" data-calendar-prev aria-label="上个月">‹</button><button class="calendar-today" type="button" data-calendar-today>TODAY</button><button type="button" data-calendar-next aria-label="下个月">›</button></div></div><div class="calendar-weekdays" aria-hidden="true"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div><div class="calendar-grid" data-calendar-grid></div><div class="calendar-selection" data-calendar-selection aria-live="polite"></div></section><section class="fortune-widget" aria-label="纸罐抽签"><button class="fortune-jar" type="button" data-fortune-jar aria-label="从纸罐中抽取一句话"><svg viewBox="0 0 96 96" role="img" aria-hidden="true"><path d="M31 25h34M35 18h26M32 31h32l-3 43H35l-3-43Z"></path><path d="M39 43c6-4 12 4 18 0M39 53c6 4 12-4 18 0M42 63h12"></path></svg><span>抽一张纸条</span></button></section><script id="calendar-post-data" type="application/json">{"2026-09-23":[{"title":"Multi-Paradigm Collaborative Adversarial Attack Against Multi-Modal Large Language Models","url":"/Paper%E9%98%85%E8%AF%BB%E4%B9%8B%E3%80%8AMulti-Paradigm%20Collaborative%20Adversarial%20Attack%20Against%20Multi-Modal%20Large%20Language%20Models%E3%80%8B/"},{"title":"","url":"/Paper%05%EF%BF%BDK%0AA%20Frustratingly%20Simple%20Yet%20Highly%20Effective%20Attack%20Baseline%20Over%2090%25%20Success%20Rate%20Against%20the%20Strong%20%20Black-box%20Models%20%0B/"}],"2026-09-22":[{"title":"Paper阅读与复现之《Adversarial Attacks against Closed-Source MLLMs via Feature Optimal Alignment》","url":"/Paper%E9%98%85%E8%AF%BB%E4%B8%8E%E5%A4%8D%E7%8E%B0%E4%B9%8B%E3%80%8AAdversarial%20Attacks%20against%20Closed-Source%20MLLMs%20via%20Feature%20Optimal%20Alignment%E3%80%8B/"}],"2026-09-21":[{"title":"再读Attention","url":"/%E5%86%8D%E8%AF%BBAttention/"},{"title":"如何阅读论文和源代码","url":"/%E8%BD%AC%E8%BD%BD-%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87%E5%92%8C%E6%BA%90%E4%BB%A3%E7%A0%81/"}],"2026-09-20":[{"title":"SOP之CodeReading&Review","url":"/SOP%E4%B9%8BCodeReading&Review/"},{"title":"Survey阅读之 From Storage to Experience-A Survey on the Evolution of LLM Agent Memory Mechanisms","url":"/Survey%E9%98%85%E8%AF%BB%E4%B9%8BFrom%20Storage%20to%20Experience-A%20Survey%20on%20the%20Evolution%20of%20LLM%20Agent%20Memory%20Mechanisms/"},{"title":"读书笔记之--《人间游戏-人际关系心理学》","url":"/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B--%E3%80%8A%E4%BA%BA%E9%97%B4%E6%B8%B8%E6%88%8F-%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B/"},{"title":"读书笔记之--《蛤蟆先生去看心理医生》","url":"/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B--%E3%80%8A%E8%9B%A4%E8%9F%86%E5%85%88%E7%94%9F%E5%8E%BB%E7%9C%8B%E5%BF%83%E7%90%86%E5%8C%BB%E7%94%9F%E3%80%8B/"},{"title":"SOP之论文阅读","url":"/SOP%E4%B9%8B%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"}],"2026-09-19":[{"title":"对未来的思考，模糊的计划和我的幻觉","url":"/%E5%AF%B9%E6%9C%AA%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%8C%E6%A8%A1%E7%B3%8A%E7%9A%84%E8%AE%A1%E5%88%92/"},{"title":"记一个小小的创作灵感","url":"/%E8%AE%B0%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%B0%8F%E7%9A%84%E5%88%9B%E4%BD%9C%E7%81%B5%E6%84%9F/"}],"2026-09-18":[{"title":"读书笔记之--《时间机器》","url":"/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B9%8B--%E3%80%8A%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8%E3%80%8B/"}],"2026-09-17":[{"title":"为什么我决定每天写博客，以及对于学习的思考","url":"/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%86%B3%E5%AE%9A%E6%AF%8F%E5%A4%A9%E5%86%99%E5%8D%9A%E5%AE%A2%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%AF%B9%E4%BA%8E%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%80%9D%E8%80%83/"}],"2026-04-13":[{"title":"大模型的训练和推理吃多少显存","url":"/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83%E5%92%8C%E6%8E%A8%E7%90%86%E5%90%83%E5%A4%9A%E5%B0%91%E6%98%BE%E5%AD%98-math%20transformer/"}]}</script><div class="fortune-message" data-fortune-message role="status" aria-live="polite"></div></aside><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Ksupotco的纸罐子</a><p class="is-size-7"><span>&copy; 2026 ksupotco</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer></div><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><script data-pjax src="/js/main.js" defer></script><script src="/js/article-toc.js" defer></script><script src="/js/utility-panel.js?v=20260921-1" defer></script><!--!--></body></html>
